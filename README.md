@@ -1,6 +1,47 @@
 # GoDot_Examples_and_CheatSheet
 A bunch of GoDot examples to play and test the engine elements and tools. Documentation and cheatsheet.
 
+## 1. Install GoDot
+Install GoDot is possible from Steam application or from [GoDot 3.0 download](https://godotengine.org/download/windows) web. In the web appears the normal version (GDScript) and mono version (C# support).<br>
+Currently a beta version that support typed programming can be downloaded from [GoDot 3.1 download](https://downloads.tuxfamily.org/godotengine/3.1/beta1/)
+
+## 2. Variables
+The variables are a symbol/tag to represent a number value, text, sprite(image) or object, are declared with **var** keyword.<br>
+A variable is a tag where set values or a container.<br>
+According to convention of programmers they are written in lowercase and separating words by low bar.
+```gdscript
+var variable_name : variable_type = variable_value #typed
+var variable_name = variable_value #dynamic
+```
+If a variable that points to a primitive is declared and then another variable with the same value is created, a copy will be made.<br>
+If you declare a variable that points to an object and then create another object pointing to the same object, a reference will be made.<br>
+If you define (in a typed way) a variable of a type then it can not be changed.<br>
+GDScript can be dynamic or typed according to the variables declared.<br>
+**GDScript can interpret the type directly, with the ":" character.**<br>
+```gdscript
+var variable_name : = 100
+var variable_name : int = 100
+```
+
+|FEATURES | DYNAMIC | TYPED|
+|---------|:-------:|:----:|
+|Fast implementation | + | - |
+|Small apps | + | - |
+|Error control | - | + |
+|Scalability | - | + |
+|Big apps | - | + |
+
+
+## 3. Constants
+Constants are declared with **const** keyword, by dynamic or typed way.<br>
+According to convention of programmers they are written in capital letters and separating words by low bar.
+```gdscript
+const CONSTANT_NAME = value #dynamic
+const CONSTANT_NAME : type = value #typed
+const CONSTANT_NAME : = value #typed
+```
+
+## 4. CheatSheet
 ### Elements
 Element | Description
 --------|------------
