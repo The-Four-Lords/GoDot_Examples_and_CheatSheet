@@ -106,14 +106,28 @@ GDScript interprets the arrays within the conditions according to their value
 var party_A : = [] #false in a condition
 var party_B : = [2, "chips"] #true in a condition
 ```
-## 9. Objects
+
+## 9. Dictonaries
+In GDScript, dictionary is a element type compound by **key** and **value** fields. Like maps in Java or objects in JS<br>
+Ara so useful to store many data with indexes in the script.<br>
+The keyword **{}** are used to define dictionaries.<br>
+```gdscript
+var my_dictonary : = {key : value, key : value}
+var other_dictionary : = {"name" : "Excalibur", "damage" : 150}
+var big_dictionary : = {
+              "promp" : ["a name", "a place"],
+              "story" : "%s go to %s tomorrow"
+              }
+```
+
+## 10. Objects
 The objects let store variables and functions inside reusable container. The object variables determine how is the objet while the function determine the object behavior, the **func** key word is used to define functions.<br>
 YOu build objects from a class throuhg instantiation, a process that takes a plan and produces a concrete object yo can work with:
 ```gdscript
 var object : = Object.new()
 ```
 
-## 10. Classes
+## 11. Classes
 The objects that are created are of a certain class. To create a new class you must create a **.gd** file<br>
 You can inherit from existing classes using the keyword **extended** at the beginning of the **.gd** file code<br>
 The structure is similar to a Java class (var variables, const constants and func functions)
@@ -135,7 +149,7 @@ func _trhow_spell(spell_name):
     mana -= 20    
 ```
 
-## 11. CheatSheet
+## 12. CheatSheet
 ### Elements
 Element | Description
 --------|------------
@@ -155,6 +169,10 @@ Function | Description
 print(message) | Show the message into GoDot console
 max(a,b) | return the maximum value between a and b
 min(a,b) | return the minimum value between a and b
+randomize() | Randomizes the seed (or the internal state) of the random number generator. Current implementation reseeds using a number based on time.
+randi() | Returns a random 32 bit integer. Use remainder to obtain a random value between 0 and N
+queue_free() | On node, free it from the scene
+get_tree().reload_current_scene() | Reload the current scene
 
 ### Hot Keys
 Function | Description
