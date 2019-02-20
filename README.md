@@ -153,13 +153,13 @@ Function | Description
 \_process(delta) | This function is called every frame
 \_physics\_process(delta) | This is called every physics frame
 print(message) | Show the message into GoDot console
-max(a,b) | return the max value between a and b
-min(a,b) | return the min value between a and b
+max(a,b) | return the maximum value between a and b
+min(a,b) | return the minimum value between a and b
 
 ### Hot Keys
 Function | Description
 :-------:|------------
-Crl+shift+F11 | Max the script edition area
+Crl+shift+F11 | Maximizes the script edition area
 Ctrl+a | Add new object/node
 F6 | Run the curren scene
 F5 | Run the main project scene
