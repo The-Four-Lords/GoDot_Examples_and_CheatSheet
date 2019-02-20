@@ -3,7 +3,8 @@ A bunch of GoDot examples to play and test the engine elements and tools. Docume
 
 ## 1. Install GoDot
 Install GoDot is possible from Steam application or from [GoDot 3.0 download](https://godotengine.org/download/windows) web. In the web appears the normal version (GDScript) and mono version (C# support).<br>
-Currently a beta version that support typed programming can be downloaded from [GoDot 3.1 download](https://downloads.tuxfamily.org/godotengine/3.1/beta1/)
+Currently a beta version that support typed programming can be downloaded from [GoDot 3.1 download](https://downloads.tuxfamily.org/godotengine/3.1/beta1/)<br>
+GoDot use a own language based in Python, it is GDScript.
 
 ## 2. Variables
 The variables are a symbol/tag to represent a number value, text, sprite(image) or object, are declared with **var** keyword.<br>
@@ -41,7 +42,100 @@ const CONSTANT_NAME : type = value #typed
 const CONSTANT_NAME : = value #typed
 ```
 
-## 4. CheatSheet
+## 4. Operations and operators
+It is popssible use common math operators like: **+ - * / %** (module operator like Java).<br
+The operator + is used to string concatenation too.<br>
+There are special operator for binary data.<br>
+
+## 5. Comparing values
+In GDScript there are comparators like Java language: **> < == >= <= !=**<br>
+To concatenate comparators it is possible use **and** and **or** keywords.<br>
+With comparators is possible build conditions used in control structures.
+
+## 6. Structure controls
+### 6.1. If structure control
+Used to control the program flow
+```gdscript
+if condition:
+  "code"
+elif otherCondition:
+  "otherCode"
+else:
+  "otherOne"
+```
+### 6.2. Loop structure control
+The **for in** loop behavior is similar to the Java **for each** behavior.
+```gdscript
+for element in list:
+  if element.dead:
+    continue #got to the next loop
+   element.experience += earned_experience
+   
+for item in item_list:
+  if item.isFire:
+    break #go out the loop
+ print("The fire element was found!")
+```
+The **continue** keyword void the next code to the loop's end and go to the next iteration.<br>
+The **break** keyword stop the loop and go out to the next code after loop.
+
+## 7. Evaluating like booleans
+An empty string is interpreted as a false (like JS).<br>
+A number that is 0 is interpreted as a false (like JS).<br>
+Even if this is allowed, it is advisable to make the sentences more readable by making them explicit.<br>
+A sentence is denied by typing the keyword "not" in front of it.<br>
+```gdscript
+var character_name : = ""
+if not character_name: #true
+  ...
+var active_count : = 0
+if active_count: #false
+  ...
+```
+
+## 8. Values lists
+The lists in GDScript are defnied like **Array** or with **[]**.<br>
+In GDScript is possible build list with several values type
+```gdscript
+var empty_list : Array = [] #typed
+var other_empty_list = [] #dynamic
+var other_list : = [3, 5.0, "name", []]
+```
+GDScript interprets the arrays within the conditions according to their value
+```gdscript
+var party_A : = [] #false in a condition
+var party_B : = [2, "chips"] #true in a condition
+```
+## 9. Objects
+The objects let store variables and functions inside reusable container. The object variables determine how is the objet while the function determine the object behavior, the **func** key word is used to define functions.<br>
+YOu build objects from a class throuhg instantiation, a process that takes a plan and produces a concrete object yo can work with:
+```gdscript
+var object : = Object.new()
+```
+
+## 10. Classes
+The objects that are created are of a certain class. To create a new class you must create a **.gd** file<br>
+You can inherit from existing classes using the keyword **extended** at the beginning of the **.gd** file code<br>
+The structure is similar to a Java class (var variables, const constants and func functions)
+```gdscript
+extends Node2D
+
+var MAX_HEALTH = 100
+var MAX_MANA = 50
+var health
+var mana
+
+#Called when node is created
+func _ready():
+  health = MAX_HEALTH
+  mana = MAX_MANA
+
+func _trhow_spell(spell_name):
+  if (spell_name == "expelliarmus"):
+    mana -= 20    
+```
+
+## 11. CheatSheet
 ### Elements
 Element | Description
 --------|------------
@@ -58,3 +152,15 @@ Function | Description
 \_exit\_tree() | When the node exits the \_Scene Tree\_, this function is called. Children nodes have all exited the \_Scene Tree\_ at this point and all became inactive
 \_process(delta) | This function is called every frame
 \_physics\_process(delta) | This is called every physics frame
+print(message) | Show the message into GoDot console
+max(a,b) | return the max value between a and b
+min(a,b) | return the min value between a and b
+
+### Hot Keys
+Function | Description
+:-------:|------------
+Crl+shift+F11 | Max the script edition area
+Ctrl+a | Add new object/node
+F6 | Run the curren scene
+F5 | Run the main project scene
+F4 | Open GoDot API dialog
