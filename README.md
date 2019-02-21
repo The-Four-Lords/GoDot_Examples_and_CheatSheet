@@ -123,7 +123,7 @@ var similar_dictionary : = {"name" = "Excalibur", "damage" = 150} #with = keywor
 var big_dictionary : = {
               "promp" : ["a name", "a place"],
               "story" : "%s go to %s tomorrow"
-              }
+}
 ```
 It is possible add new elements to dictionaries like new fields to JS object, setting the new field name and value.
 ```gdscript
