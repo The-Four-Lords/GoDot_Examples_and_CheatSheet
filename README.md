@@ -4,7 +4,12 @@ A bunch of GoDot examples to play and test the engine elements and tools. Docume
 ## 1. Install GoDot
 Install GoDot is possible from Steam application or from [GoDot 3.0 download](https://godotengine.org/download/windows) web. In the web appears the normal version (GDScript) and mono version (C# support).<br>
 Currently a beta version that support typed programming can be downloaded from [GoDot 3.1 download](https://downloads.tuxfamily.org/godotengine/3.1/beta1/)<br>
-GoDot use a own language based in Python, it is GDScript.
+GoDot use a own language based in Python, it is GDScript:
+* GDScript is optimized for run loops
+* GDScript has a similar sintax than Python
+* GDScript is a dynamically typed language (easy and fast)
+* GDScript no is a compiled language
+* GDscript is written in C ++, it has a high performance
 
 ## 2. Variables
 The variables are a symbol/tag to represent a number value, text, sprite(image) or object, are declared with **var** keyword.<br>
@@ -109,7 +114,7 @@ var party_B : = [2, "chips"] #true in a condition
 
 ## 9. Dictonaries
 In GDScript, dictionary is a element type compound by **key** and **value** fields. Like maps in Java or objects in JS<br>
-Ara so useful to store many data with indexes in the script.<br>
+Dictionaries are so useful to store many data with indexes in the script.<br>
 The keyword **{}** are used to define dictionaries.<br>
 ```gdscript
 var my_dictonary : = {key : value, key : value}
