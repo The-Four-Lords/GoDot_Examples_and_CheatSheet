@@ -112,17 +112,27 @@ var party_A : = [] #false in a condition
 var party_B : = [2, "chips"] #true in a condition
 ```
 
-## 9. Dictonaries
-In GDScript, dictionary is a element type compound by **key** and **value** fields. Like maps in Java or objects in JS<br>
+## 9. Dictionaries
+In GDScript, dictionary is a element type compound by **key** and **value** pairs. It is similar to JSON structure and JS object as the **:** keyword can be changed by **=** to set values to the keys.
 Dictionaries are so useful to store many data with indexes in the script.<br>
 The keyword **{}** are used to define dictionaries.<br>
 ```gdscript
 var my_dictonary : = {key : value, key : value}
-var other_dictionary : = {"name" : "Excalibur", "damage" : 150}
+var other_dictionary : = {"name" : "Excalibur", "damage" : 150} #with : keyword
+var similar_dictionary : = {"name" = "Excalibur", "damage" = 150} #with = keyword
 var big_dictionary : = {
               "promp" : ["a name", "a place"],
               "story" : "%s go to %s tomorrow"
               }
+```
+It is possible add new elements to dictionaries like new fields to JS object, setting the new field name and value.
+```gdscript
+var car_dictionary : = {
+              "firm" : "Ferrari",
+              "name" : "F40",
+              "model" : "Shine"
+}
+car_dictionary.cv = 500
 ```
 
 ## 10. Objects
