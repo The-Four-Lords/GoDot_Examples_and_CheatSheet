@@ -132,7 +132,8 @@ var car_dictionary : = {
               "name" : "F40",
               "model" : "Shine"
 }
-car_dictionary.cv = 500
+car_dictionary.cv = 500 #new field cv inside
+car_dictionary["doors"] = 5 #new field doors inside
 ```
 
 ## 10. Objects
