@@ -110,6 +110,12 @@ GDScript interprets the arrays within the conditions according to their value
 ```gdscript
 var party_A : = [] #false in a condition
 var party_B : = [2, "chips"] #true in a condition
+var my_var = 2
+var my_other_var = "Moon"
+if my var in party_B #true
+  do_things()
+elif my_other_var in party_B #false
+  do_other_things()
 ```
 
 ## 9. Dictionaries
