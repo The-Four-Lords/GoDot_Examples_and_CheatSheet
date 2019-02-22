@@ -189,6 +189,9 @@ randomize() | Randomizes the seed (or the internal state) of the random number g
 randi() | Returns a random 32 bit integer. Use remainder to obtain a random value between 0 and N
 queue_free() | On node, free it from the scene
 get_tree().reload_current_scene() | Reload the current scene
+file.open(fileName, MODE) | Try open the file in the mode "MODE". Return the action code (0 is success)
+file.get_as_text() | Return the file content as text
+parse_json(text) | Return the text enter like json object
 
 ### Hot Keys
 Function | Description
