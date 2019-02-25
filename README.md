@@ -194,6 +194,9 @@ min(a,b) | return the minimum value between a and b
 randomize() | Randomizes the seed (or the internal state) of the random number generator. Current implementation reseeds using a number based on time.
 randi() | Returns a random 32 bit integer. Use remainder to obtain a random value between 0 and N
 queue_free() | On node, free it from the scene
+get_tree() | Return the scenes tree
+get_tree().quit() | Close the app/game
+get_tree().change("scene_path") | Change the current scene to "scene_path" scene
 get_tree().reload_current_scene() | Reload the current scene
 file.open(fileName, MODE) | Try open the file in the mode "MODE". Return the action code (0 is success)
 file.get_as_text() | Return the file content as text
