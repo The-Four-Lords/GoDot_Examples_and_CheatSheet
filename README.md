@@ -201,6 +201,7 @@ get_tree().reload_current_scene() | Reload the current scene
 file.open(fileName, MODE) | Try open the file in the mode "MODE". Return the action code (0 is success)
 file.get_as_text() | Return the file content as text
 parse_json(text) | Return the text enter like json object
+preload("resourceFilePath") | Load the file (scene, image, etc) in resourceFilePath and return a ID associated with this preload (used in texture attribute)
 
 ### Hot Keys
 Function | Description
