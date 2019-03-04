@@ -189,19 +189,22 @@ Function | Description
 \_process(delta) | This function is called every frame
 \_physics\_process(delta) | This is called every physics frame
 print(message) | Show the message into GoDot console
-max(a,b) | return the maximum value between a and b
-min(a,b) | return the minimum value between a and b
+max(a,b) | Returns the maximum value between a and b
+min(a,b) | Returns the minimum value between a and b
 randomize() | Randomizes the seed (or the internal state) of the random number generator. Current implementation reseeds using a number based on time.
 randi() | Returns a random 32 bit integer. Use remainder to obtain a random value between 0 and N
 queue_free() | On node, free it from the scene
-get_tree() | Return the scenes tree
+get_tree() | Returns the scenes tree
 get_tree().quit() | Close the app/game
 get_tree().change("scene_path") | Change the current scene to "scene_path" scene
 get_tree().reload_current_scene() | Reload the current scene
 file.open(fileName, MODE) | Try open the file in the mode "MODE". Return the action code (0 is success)
-file.get_as_text() | Return the file content as text
-parse_json(text) | Return the text enter like json object
+file.get_as_text() | Returns the file content as text
+parse_json(text) | Returns the text enter like json object
 preload("resourceFilePath") | Load the file (scene, image, etc) in resourceFilePath and return a ID associated with this preload (used in texture attribute)
+round(s) | Returns the integral value that is nearest to s, with halfway cases rounded away from zero
+asb(s) | Returns the absolute value of parameter s (i.e. unsigned value, works for integer and float)
+get_global_mouse_position() | Returns the mouse position over view
 
 ### Hot Keys
 Function | Description
