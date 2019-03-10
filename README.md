@@ -207,6 +207,8 @@ get_tree() | Returns the scenes tree
 get_tree().quit() | Close the app/game
 get_tree().change("scene_path") | Change the current scene to "scene_path" scene
 get_tree().reload_current_scene() | Reload the current scene
+get_parent() | Returns the parent node
+get_node("node_name") | Returns the child node
 file.open(fileName, MODE) | Try open the file in the mode "MODE". Return the action code (0 is success)
 file.get_as_text() | Returns the file content as text
 parse_json(text) | Returns the text enter like json object
