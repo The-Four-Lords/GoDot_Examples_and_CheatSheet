@@ -172,7 +172,7 @@ func _trhow_spell(spell_name):
 ```
 
 ### Singletons
-In GoDot it is possible create singletons class. Not it is necessary to implement any extra code to do it.
+In GoDot it is possible create singleton classes. Not it is necessary to implement any extra code to do it.
 It is possible access to singleton variables and functions from any script only using the singleton name.
 To create a singleton class is necessary to declare it in Project Settings menu on Autoload tab.
 
