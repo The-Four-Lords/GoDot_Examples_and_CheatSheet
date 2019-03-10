@@ -171,6 +171,13 @@ func _trhow_spell(spell_name):
     mana -= 20    
 ```
 
+### Singletons
+In GoDot it is possible create singletons class. Not it is necessary to implement any extra code to do it.
+To create a singleton class is necessary to declare it in Project Settings menu on Autoload tab.
+
+![Singleton in GoDot](img/singleton.png)
+
+
 ## 12. CheatSheet
 ### Elements
 Element | Description
