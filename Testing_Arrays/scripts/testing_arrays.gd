@@ -29,3 +29,7 @@ func _ready():
 		print ("Saturn appears!")
 	if "Moon" in party:
 		print ("Moon appears!")
+		
+	print("------Check array values (foreach/forin)------")
+	for member in party:
+		print (member)
