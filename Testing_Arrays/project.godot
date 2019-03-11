@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Testing_Arrays"
+run/main_scene="res://scenes/testing_arrays.tscn"
 config/icon="res://icon.png"
 
 [rendering]

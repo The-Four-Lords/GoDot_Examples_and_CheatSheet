@@ -13,7 +13,7 @@ func _ready():
 	
 	
 	print("------Filled Array return true------")
-	party.append(4)
+	party.append("Pluton")
 	print(party)
 	if party:
 		print("true")
@@ -24,6 +24,8 @@ func _ready():
 	party.append("Mars")
 	party.append("Moon")
 	party.append("Earth")
+	party.append("Mercury")
+	party.append("Sun")
 	print(party)
 	if "Saturn" in party:
 		print ("Saturn appears!")
@@ -33,3 +35,8 @@ func _ready():
 	print("------Check array values (foreach/forin)------")
 	for member in party:
 		print (member)
+		
+	print("------for in range(1, 3) is [a,b)------")
+	for k in range(1, 3):
+		print (party[k])
+	
