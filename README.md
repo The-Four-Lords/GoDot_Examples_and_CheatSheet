@@ -227,3 +227,22 @@ Ctrl+a | Add new object/node
 F6 | Run the curren scene
 F5 | Run the main project scene
 F4 | Open GoDot API dialog
+
+## From Godot to Android
+
+* Install Android Studio
+* Start Android Studio to complete the dependency installation
+* Install Java JDK
+* In Godot, go to: ```Editor > Editor Settings > Export > Android```
+* Set the below parameters:
+  * Adb: ```C:\Users\your_user\AppData\Local\Android\Sdk\platform-tools\adb.exe```
+  * Jarsigner: ```C:\Program Files\Java\jdk-11.0.2\bin\jarsigner.exe```
+  * Debug Keystore: ```C:\Users\your_user\.android\.debug.keystore```
+    * If the ```.debug.keystore``` is not generated:
+      * Open a cmd on Java JDK's bin folder and run: ```keytool -genkey -v -keystore  C:/Users/your_user/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"```
+* In Godot select ```Project > Export > Add... > Android```
+* Make sure ```Runnable``` is on
+* Select a name for the apk and a destination folder
+* Under ```Package``` section set a name for the game and the package (the package's unique name must be in format name.name)
+* Download ```Export Templates``` if you don't do this before (is all managed inside of Godot, no external downloads required)
+* Export Project
