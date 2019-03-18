@@ -1,0 +1,22 @@
+
+Marcador = Contador de piezas destruidas (=escaños) para cada partido. 
+Objetivo: Que la suma de contadores de  varios partidos logre la mayoría absoluta (175 escaños)
+Objetivo al azar en cada partida:
+	-> Conseguir gobierno de Derechas (PP, C's, Vox)
+	-> Conseguir gobierno de  Izquierdas ( PSOE, Podemos)
+	-> Forzar segundas elecciones (ninguna combinación posible)
+	-> Pacto Nacional: PP + PSOE
+	-> Mayoría Absoluta de un solo partido
+	
+La partida se finaliza cuando se hayan destruido 350 piezas (=escaños).
+
+
+Combos:
+Combo de 4 piezas: Urna 1-O
+	Al hacer Swap hacia una dirección, suelta una mani indepe que destruye todos las piezas en línea.
+	
+Combo 5 piezas (en forma de L o T): Bomba ETA
+	Al pulsarla, explota todos las piezas de partidos justo a su alrededor
+		
+Combo 5 piezas en línea: Corona del rey
+Al hacer swap con una partido, destruye todas las piezas de ese partido.
