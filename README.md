@@ -238,6 +238,8 @@ round(s) | Returns the integral value that is nearest to s, with halfway cases r
 asb(s) | Returns the absolute value of parameter s (i.e. unsigned value, works for integer and float)
 get_global_mouse_position() | Returns the mouse position over view
 signal | Signals are Godot’s version of the observer pattern. They allow a node to send out a message that other nodes can listen for and respond to
+Vector2(a,b) | 2-element structure that can be used to represent positions in 2d-space, or any other pair of numeric values.
+PoolVector2Array([]) | Vector2 array
 
 ### Hot Keys
 Function | Description
