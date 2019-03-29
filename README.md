@@ -198,7 +198,7 @@ To create a singleton class is necessary to declare it in Project Settings menu 
 * Export Project
 
 ## 13. CheatSheet
-### Elements
+### Scene Elements
 Element | Description
 --------|------------
 TextureRect | Draws a sprite or a texture inside a User Interface. The texture can tile or not. Use TextureRect to draw icons and sprites in your User Interfaces. To create panels and menu boxes, take a look at NinePatchFrame. Its Stretch Mode property controls the texture’s scale and placement. It can scale, tile and stay centered inside its bounding rectangle. TextureRect is one of the 5 most common nodes to create game UI
@@ -207,8 +207,9 @@ LineEdit | Control that provides single line string editing.
 TextureButton | Texture-based button. Supports Pressed, Hover, Disabled and Focused states. TextureButton has the same functionality as Button, except it uses sprites instead of Godot’s Theme resource. It is faster to create, but it doesn’t support localization like more complex Controls. The Normal state’s texture is required. Others are optional
 Tween | Smoothly animates a node’s properties over time. Tweens are useful for animations requiring a numerical property to be interpolated over a range of values.
 Timer | A countdown timer. Counts down a specified interval and emits a signal on reaching 0. Can be set to repeat or “one shot” mode.
+Sprite | A node that displays a 2D texture. The texture displayed can be a region from a larger atlas texture, or a frame from a sprite sheet animation.
 
-### Functions
+### Script Functions and Variables
 Function | Description
 ---------|------------
 \_enter\_tree() | When the node enters the \_Scene Tree\_, it becomes active and  this function is called. Children nodes have not entered the active scene yet. In general, it's better to use \_ready() for most cases
@@ -236,6 +237,7 @@ preload("resourceFilePath") | Load the file (scene, image, etc) in resourceFileP
 round(s) | Returns the integral value that is nearest to s, with halfway cases rounded away from zero
 asb(s) | Returns the absolute value of parameter s (i.e. unsigned value, works for integer and float)
 get_global_mouse_position() | Returns the mouse position over view
+signal | Signals are Godot’s version of the observer pattern. They allow a node to send out a message that other nodes can listen for and respond to
 
 ### Hot Keys
 Function | Description
