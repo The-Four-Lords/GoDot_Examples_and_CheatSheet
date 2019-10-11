@@ -48,7 +48,7 @@ const CONSTANT_NAME : = value #typed
 ```
 
 ## 4. Operations and operators
-It is popssible use common math operators like: **+ - * / %** (module operator like Java).<br
+It is popssible use common math operators like: **+ - * / %** (module operator like Java).<br>
 The operator + is used to string concatenation too.<br>
 There are special operator for binary data.<br>
 
