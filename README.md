@@ -196,7 +196,18 @@ To create a singleton class is necessary to declare it in Project Settings menu 
 
 ![Singleton in GoDot](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/singleton.PNG)
 
-## 12. Exporting projects
+## 12. File class
+In GoDot it is possible open files used to store data like json files. The main comands to work with files are:
+```gdscript
+var file = File.new() #create a File object
+file.open(filePath, File.READ) #use the File object to open in read mode a file
+var text = file.get_as_text() #read the file data like text
+var data_json = parse_json(text) #if file is a json it is possible transform to json object with this method
+file.close() #close the file
+```
+
+
+## 13. Exporting projects
 ### From Godot to Android
 * Install Android Studio
 * Start Android Studio to complete the dependency installation
@@ -215,7 +226,7 @@ To create a singleton class is necessary to declare it in Project Settings menu 
 * Download ```Export Templates``` if you don't do this before (is all managed inside of Godot, no external downloads required)
 * Export Project
 
-## 13. CheatSheet
+## 14. CheatSheet
 ### Scene Elements
 Element | Description
 --------|------------
@@ -259,7 +270,7 @@ get_node('timer_node').start() | Throw the timer trigger and beging the countdow
 file.open(fileName, MODE) | Try open the file in the mode "MODE". Return the action code (0 is success)
 get_child_count() | On node returns the numbers of node's childs
 get_child(child_index) | On node returns the child specified
-file.get_as_text() | Returns the file content as text
+file.get_as_text() | Returns the file content as text. The file, is a File object, where has been invoked File.new() to instance it and file.open(filePath, openMethod) to set the file to read like text
 parse_json(text) | Returns the text enter like json object
 preload("resourceFilePath") | Load the file (scene, image, etc) in resourceFilePath and return a ID associated with this preload (used in texture attribute)
 round(s) | Returns the integral value that is nearest to s, with halfway cases rounded away from zero
