@@ -37,6 +37,24 @@ var variable_name : int = 100
 |Scalability | - | + |
 |Big apps | - | + |
 
+Typed script make the code more handle from the inspector if export the variables.
+
+There are two way for declare a variable:
+- **var**, is assigned a value when the script instance is created. At this point the node may not be ready on the scene. Example: Use var to declare variables like primitives, arrays, objects, etc.
+```gdscript
+var player_words = []
+var story = "bla bla bla"
+var flag = true
+```
+- **onready var**, is assigned a value after the node and its siblings entered the tree. Example: Use onready var to declare variable like Nodes (scene objects)
+```gdscript
+onready var my_label = $MyNode/Label
+onready var my_twenn = $MyNode/Tween
+```
+It is possible modify variables from the inspector, to do this must set **export** keyword to the variable
+```gdscript
+export var story
+```
 
 ## 3. Constants
 Constants are declared with **const** keyword, by dynamic or typed way.<br>
@@ -144,7 +162,7 @@ car_dictionary["doors"] = 5 #new field doors inside
 
 ## 10. Objects
 The objects let store variables and functions inside reusable container. The object variables determine how is the objet while the function determine the object behavior, the **func** key word is used to define functions.<br>
-YOu build objects from a class throuhg instantiation, a process that takes a plan and produces a concrete object yo can work with:
+You build objects from a class throuhg instantiation, a process that takes a plan and produces a concrete object yo can work with:
 ```gdscript
 var object : = Object.new()
 ```
@@ -198,7 +216,7 @@ To create a singleton class is necessary to declare it in Project Settings menu 
 * Export Project
 
 ## 13. CheatSheet
-### Elements
+### UI Elements
 Element | Description
 --------|------------
 TextureRect | Draws a sprite or a texture inside a User Interface. The texture can tile or not. Use TextureRect to draw icons and sprites in your User Interfaces. To create panels and menu boxes, take a look at NinePatchFrame. Its Stretch Mode property controls the texture’s scale and placement. It can scale, tile and stay centered inside its bounding rectangle. TextureRect is one of the 5 most common nodes to create game UI
@@ -208,9 +226,15 @@ TextureButton | Texture-based button. Supports Pressed, Hover, Disabled and Focu
 Tween | Smoothly animates a node’s properties over time. Tweens are useful for animations requiring a numerical property to be interpolated over a range of values.
 Timer | A countdown timer. Counts down a specified interval and emits a signal on reaching 0. Can be set to repeat or “one shot” mode.
 
-### Functions
+### Classes
+Class | Description
+--------|------------
+PoolStringArray | An Array specifically designed to hold String. Optimized for memory usage, does not fragment the memory. Note that this type is passed by value and not by reference.
+
+### Relevant Functions
 Function | Description
 ---------|------------
+grab_focus() | On node set the focus control on it
 \_enter\_tree() | When the node enters the \_Scene Tree\_, it becomes active and  this function is called. Children nodes have not entered the active scene yet. In general, it's better to use \_ready() for most cases
 \_ready() | This function is called after \_enter\_tree, but it ensures that all children nodes have also entered the \_Scene Tree\_, and became active
 \_exit\_tree() | When the node exits the \_Scene Tree\_, this function is called. Children nodes have all exited the \_Scene Tree\_ at this point and all became inactive
@@ -221,7 +245,9 @@ max(a,b) | Returns the maximum value between a and b
 min(a,b) | Returns the minimum value between a and b
 randomize() | Randomizes the seed (or the internal state) of the random number generator. Current implementation reseeds using a number based on time.
 randi() | Returns a random 32 bit integer. Use remainder to obtain a random value between 0 and N
-queue_free() | On node, free it from the scene
+hide() / show() | On node hide or show it. No remove it from the scene
+queue_free() | On node, free it from the scene if it not is blocked
+free() | On node, free it from the scene
 get_tree() | Returns the scenes tree
 get_tree().quit() | Close the app/game
 get_tree().change("scene_path") | Change the current scene to "scene_path" scene
@@ -230,6 +256,8 @@ get_parent() | Returns the parent node
 get_node("node_name") | Returns the node. It is similiar to use $ keyword
 get_node('timer_node').start() | Throw the timer trigger and beging the countdown
 file.open(fileName, MODE) | Try open the file in the mode "MODE". Return the action code (0 is success)
+get_child_count() | On node returns the numbers of node's childs
+get_child(child_index) | On node returns the child specified
 file.get_as_text() | Returns the file content as text
 parse_json(text) | Returns the text enter like json object
 preload("resourceFilePath") | Load the file (scene, image, etc) in resourceFilePath and return a ID associated with this preload (used in texture attribute)
@@ -242,6 +270,8 @@ Function | Description
 :-------:|------------
 Crl+shift+F11 | Maximizes the script edition area
 Ctrl+a | Add new object/node
+Ctrl+k | Comment lines
+Alt+"ArrowKey" | Move line code in arrow key direction
 F6 | Run the curren scene
 F5 | Run the main project scene
 F4 | Open GoDot API dialog
