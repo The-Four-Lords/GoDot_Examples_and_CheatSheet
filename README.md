@@ -196,7 +196,7 @@ To create a singleton class is necessary to declare it in Project Settings menu 
 
 ![Singleton in GoDot](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/singleton.PNG)
 
-## 12. File class
+### File
 In GoDot it is possible open files used to store data like json files. The main comands to work with files are:
 ```gdscript
 var file = File.new() #create a File object
@@ -205,6 +205,12 @@ var text = file.get_as_text() #read the file data like text
 var data_json = parse_json(text) #if file is a json it is possible transform to json object with this method
 file.close() #close the file
 ```
+
+## 12. Nodes
+The nodes are the main scene element. Exist many node types, Node2D, Node3D, Control, etc. Each of them has properties according with the node type.
+
+### Area2D
+
 
 
 ## 13. Exporting projects
