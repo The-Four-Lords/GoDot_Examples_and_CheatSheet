@@ -1,6 +1,31 @@
 # GoDot_Examples_and_CheatSheet
 A bunch of GoDot examples to play and test the engine elements and tools. Documentation and cheatsheet.
 
+## Table of contents
+- [1. Install GoDot](#1-install-godot)
+- [2. Variables](#2-variables)
+- [3. Constants](#3-constants)
+- [4. Operations and operators](#4-operations-and-operators)
+- [5. Comparing values](#5-comparing-values)
+- [6. Structure controls](#6-structure-controls)
+  * [6.1. If structure control](#61-if-structure-control)
+  * [6.2. Loop structure control](#62-loop-structure-control)
+- [7. Evaluating like booleans](#7-evaluating-like-booleans)
+- [8. Values lists](#8-values-lists)
+- [9. Dictionaries](#9-dictionaries)
+- [10. Objects](#10-objects)
+- [11. Classes](#11-classes)
+  * [Singletons](#singletons)
+  * [File](#file)
+- [12. Exporting projects](#12-exporting-projects)
+  * [From Godot to Android](#from-godot-to-android)
+- [13. Define inputs](#13-define-inputs)
+- [14. CheatSheet](#14-cheatsheet)
+  * [Scene Elements (Nodes)](#scene-elements--nodes-)
+  * [Classes](#classes)
+  * [Relevant Functions](#relevant-functions)
+  * [Hot Keys](#hot-keys)
+
 ## 1. Install GoDot
 Install GoDot is possible from Steam application or from [GoDot 3.0 download](https://godotengine.org/download/windows) web. In the web appears the normal version (GDScript) and mono version (C# support).<br>
 Currently a beta version that support typed programming can be downloaded from [GoDot 3.1 download](https://downloads.tuxfamily.org/godotengine/3.1/beta1/)<br>
@@ -233,6 +258,7 @@ To define inputs go to Project>Project Settings>Input Mapt(tab). Here it is poss
 ## 14. CheatSheet
 ### Scene Elements (Nodes)
 The nodes are the main scene element. Exist many node types, Node2D, Node3D, Control, etc. Each of them has properties according with the node type.
+
 Element | Description
 --------|------------
 TextureRect | Draws a sprite or a texture inside a User Interface. The texture can tile or not. Use TextureRect to draw icons and sprites in your User Interfaces. To create panels and menu boxes, take a look at NinePatchFrame. Its Stretch Mode property controls the texture’s scale and placement. It can scale, tile and stay centered inside its bounding rectangle. TextureRect is one of the 5 most common nodes to create game UI
