@@ -21,7 +21,7 @@ A bunch of GoDot examples to play and test the engine elements and tools. Docume
   * [From Godot to Android](#from-godot-to-android)
 - [13. Define inputs](#13-define-inputs)
 - [14. CheatSheet](#14-cheatsheet)
-  * [Scene Elements (Nodes)](#scene-elements--nodes-)
+  * [Scene Elements (Nodes)](#scene-elements---nodes)
   * [Classes](#classes)
   * [Relevant Functions](#relevant-functions)
   * [Hot Keys](#hot-keys)
@@ -256,7 +256,7 @@ To define inputs go to Project>Project Settings>Input Mapt(tab). Here it is poss
 ![Inputs in Godot](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/inputs.PNG)
 
 ## 14. CheatSheet
-### Scene Elements (Nodes)
+### Scene Elements - Nodes
 The nodes are the main scene element. Exist many node types, Node2D, Node3D, Control, etc. Each of them has properties according with the node type.
 
 Element | Description
