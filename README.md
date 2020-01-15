@@ -206,14 +206,7 @@ var data_json = parse_json(text) #if file is a json it is possible transform to 
 file.close() #close the file
 ```
 
-## 12. Nodes
-The nodes are the main scene element. Exist many node types, Node2D, Node3D, Control, etc. Each of them has properties according with the node type.
-
-### Area2D
-
-
-
-## 13. Exporting projects
+## 12. Exporting projects
 ### From Godot to Android
 * Install Android Studio
 * Start Android Studio to complete the dependency installation
@@ -232,8 +225,14 @@ The nodes are the main scene element. Exist many node types, Node2D, Node3D, Con
 * Download ```Export Templates``` if you don't do this before (is all managed inside of Godot, no external downloads required)
 * Export Project
 
+## 13. Define inputs
+To define inputs go to Project>Project Settings>Input Mapt(tab). Here it is possible define new inputs keys. To evaluate in code the inputs, it is use Input class (that is a singleton)
+
+![Inputs in Godot](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/inputs.PNG)
+
 ## 14. CheatSheet
-### Scene Elements
+### Scene Elements (Nodes)
+The nodes are the main scene element. Exist many node types, Node2D, Node3D, Control, etc. Each of them has properties according with the node type.
 Element | Description
 --------|------------
 TextureRect | Draws a sprite or a texture inside a User Interface. The texture can tile or not. Use TextureRect to draw icons and sprites in your User Interfaces. To create panels and menu boxes, take a look at NinePatchFrame. Its Stretch Mode property controls the texture’s scale and placement. It can scale, tile and stay centered inside its bounding rectangle. TextureRect is one of the 5 most common nodes to create game UI
@@ -243,6 +242,12 @@ TextureButton | Texture-based button. Supports Pressed, Hover, Disabled and Focu
 Tween | Smoothly animates a node’s properties over time. Tweens are useful for animations requiring a numerical property to be interpolated over a range of values.
 Timer | A countdown timer. Counts down a specified interval and emits a signal on reaching 0. Can be set to repeat or “one shot” mode.
 Sprite | A node that displays a 2D texture. The texture displayed can be a region from a larger atlas texture, or a frame from a sprite sheet animation.
+Area2D | 2D area that detects CollisionObject2D nodes overlapping, entering, or exiting. Can also alter or override local physics parameters (gravity, damping).
+Physicsbody2D | PhysicsBody2D is an abstract base class for implementing a physics body. All *Body2D types inherit from it. Need CollisionSHape2D to interact with other objects. Need Sprite/AnimatedSprite to set a texture.
+StaticBody2D | Is a body that is not intended to move. It is ideal for implementing objects in the environment, such as walls or platforms. Additionally, a constant linear or angular velocity can be set for the static body, which will affect colliding bodies as if it were moving (for example, a conveyor belt). No designed to move. Great for walls, floors, platforms, etc. Can have simple velocity applied to it.
+RigidBody2D | This node implements simulated 2D physics. You do not control a RigidBody2D directly. Instead you apply forces to it (gravity, impulses, etc.) and the physics simulation calculates the resulting movement based on its mass, friction, and other physical properties. Controlled by 2D physics engine. Built in behaviours for things like gravity and friction. No controlled directly (forces are applied to it). Great for object that are moved by shomething else, not great for player control.
+KinematicBody2D | Meant to be player controlled. No affected by 2D physics engine. Can be moved directly with a control (don't have to move it with external forces)
+
 
 ### Classes
 Class | Description
@@ -285,6 +290,11 @@ get_global_mouse_position() | Returns the mouse position over view
 signal | Signals are Godot’s version of the observer pattern. They allow a node to send out a message that other nodes can listen for and respond to
 Vector2(a,b) | 2-element structure that can be used to represent positions in 2d-space, or any other pair of numeric values.
 PoolVector2Array([]) | Vector2 array
+move_and_collide() | From KinematicBody2D, when you hit something, stop. Can get collision information whatever it hits. Doesn't automatically use delta.
+move_and_slide() | From KinematicBody2D, when you hit something try and move along it. Can detect floors, walls and celling. Automatically uses delta when moving.
+_process(delta) | Called during the processing step of the main loop. Processing happens at every frame and as fast as possible, so the delta time since the previous frame is not constant.
+_physics_process(delta) | Called during the physics processing step of the main loop. Physics processing means that the frame rate is synced to the physics, i.e. the delta variable should be constant.
+delta | It is the time in seconds between frames. It is relationship with frame rate changes.
 
 ### Hot Keys
 Function | Description
