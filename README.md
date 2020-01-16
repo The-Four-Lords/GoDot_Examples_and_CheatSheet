@@ -15,23 +15,22 @@ A bunch of GoDot examples to play and test the engine elements and tools. Docume
 - [9. Dictionaries](#9-dictionaries)
 - [10. Objects](#10-objects)
 - [11. Classes](#11-classes)
-  * [Singletons](#singletons)
   * [File](#file)
+  * [TileSet and TileMap](#tileset-and-tilemap)
 - [12. Exporting projects](#12-exporting-projects)
   * [From Godot to Android](#from-godot-to-android)
 - [13. IDE tools](#13-ide-tools)
   * [Define inputs](#define-inputs)
   * [Intance scene like node](#intance-scene-like-node)
+  * [Singletons](#singletons)
 - [14. Good Practices](#14-good-practices)
 - [15. Scene Examples](#15-scene-examples)
   * [Player 2D](#player-2d)
-- [15. CheatSheet](#15-cheatsheet)
+- [16. CheatSheet](#16-cheatsheet)
   * [Scene Elements - Nodes](#scene-elements---nodes)
   * [Classes](#classes)
   * [Relevant Functions and Parameters](#relevant-functions-and-parameters)
   * [Hot Keys](#hot-keys)
-
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 
 ## 1. Install GoDot
@@ -221,14 +220,6 @@ func _trhow_spell(spell_name):
   if (spell_name == "expelliarmus"):
     mana -= 20    
 ```
-
-### Singletons
-In GoDot it is possible create singleton classes. Not it is necessary to implement any extra code to do it.
-It is possible access to singleton variables and functions from any script only using the singleton name.
-To create a singleton class is necessary to declare it in Project Settings menu on Autoload tab.
-
-![Singleton in GoDot](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/singleton.PNG)
-
 ### File
 In GoDot it is possible open files used to store data like json files. The main comands to work with files are:
 ```gdscript
@@ -238,6 +229,27 @@ var text = file.get_as_text() #read the file data like text
 var data_json = parse_json(text) #if file is a json it is possible transform to json object with this method
 file.close() #close the file
 ```
+
+### TileSet and TileMap
+TileMap element is used like scene elements library. For example , It is possible define platforms into a TileSet and load this into TileMap.
+
+**The TileMap will be a elements factory where the TileSet define the elements type**.
+
+To create a TileSet it is necessary create a scene. Define the elements into this secene and when all elements are completed (Sprites+StaticBody2D/RigidBody2D+CollisinShape) transform the scene to TileSet
+
+To irregular sprites use CollisionPolygon. Using the top menu can add points to describe the polygon
+(image*)
+
+It is possible duplicate staticBody with collsion to apply to other similar platfomrs. But remenber reset the position of staticBody in the transform, on the copied element.
+When the platforms are prepared, convert scene to TileSet
+(image*)
+
+When all elemnts are completed, transform the scene to TileSet
+(image*)
+
+To use this TileSet, it must be loaded in a TileMap (factory) into the scene where we want use the TileSet elments.
+(image*)
+
 
 ## 12. Exporting projects
 ### From Godot to Android
@@ -266,6 +278,13 @@ To define inputs go to Project>Project Settings>Input Mapt(tab). Here it is poss
 
 ### Intance scene like node
 It is so usefull define a scene and after add it into another scene. You can define a enemy in a game and it can be instanciated in any other scene using this tool.
+
+### Singletons
+In GoDot it is possible create singleton classes. Not it is necessary to implement any extra code to do it.
+It is possible access to singleton variables and functions from any script only using the singleton name.
+To create a singleton class is necessary to declare it in Project Settings menu on Autoload tab.
+
+![Singleton in GoDot](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/singleton.PNG)
 
 ![Instance scene like node](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/instance_like_node.PNG)
 
@@ -299,7 +318,7 @@ It is so usefull define a scene and after add it into another scene. You can def
 ![Example Player](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/examples_player.PNG)
 
 
-## 15. CheatSheet
+## 16. CheatSheet
 ### Scene Elements - Nodes
 The nodes are the main scene element. Exist many node types, Node2D, Node3D, Control, etc. Each of them has properties according with the node type.
 
@@ -320,6 +339,7 @@ RigidBody2D | This node implements simulated 2D physics. You do not control a Ri
 KinematicBody2D | Meant to be player controlled. No affected by 2D physics engine. Can be moved directly with a control (don't have to move it with external forces)
 Camera2D | Camera node for 2D scenes. It forces the screen (current layer) to scroll following this node. This makes it easier (and faster) to program scrollable scenes than manually changing the position of CanvasItem based nodes. This node is intended to be a simple helper to get things going quickly and it may happen often that more functionality is desired to change how the camera works. To make your own custom camera node, simply inherit from Node2D and change the transform of the canvas by calling get_viewport().set_canvas_transform(m) in Viewport. Can select Current true for set the camera like main view. It is possible modify the camera Zoom and Camera Angle.
 TileMap | Node for 2D tile-based maps. Tilemaps use a TileSet which contain a list of tiles (textures plus optional collision, navigation, and/or occluder shapes) which are used to create grid-based maps.
+TileSet | A TileSet is a library of tiles for a TileMap. It contains a list of tiles, each consisting of a sprite and optional collision shapes.Tiles are referenced by a unique integer ID
 
 
 ### Classes
