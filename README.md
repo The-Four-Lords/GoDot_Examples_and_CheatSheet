@@ -279,15 +279,14 @@ To define inputs go to Project>Project Settings>Input Mapt(tab). Here it is poss
 ### Intance scene like node
 It is so usefull define a scene and after add it into another scene. You can define a enemy in a game and it can be instanciated in any other scene using this tool.
 
+![Instance scene like node](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/instance_like_node.PNG)
+
 ### Singletons
 In GoDot it is possible create singleton classes. Not it is necessary to implement any extra code to do it.
 It is possible access to singleton variables and functions from any script only using the singleton name.
 To create a singleton class is necessary to declare it in Project Settings menu on Autoload tab.
 
 ![Singleton in GoDot](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/singleton.PNG)
-
-![Instance scene like node](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/instance_like_node.PNG)
-
 
 ## 14. Good Practices
 - The code should be easy to read by a human
