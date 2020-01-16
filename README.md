@@ -19,12 +19,20 @@ A bunch of GoDot examples to play and test the engine elements and tools. Docume
   * [File](#file)
 - [12. Exporting projects](#12-exporting-projects)
   * [From Godot to Android](#from-godot-to-android)
-- [13. Define inputs](#13-define-inputs)
-- [14. CheatSheet](#14-cheatsheet)
-  * [Scene Elements (Nodes)](#scene-elements---nodes)
+- [13. IDE tools](#13-ide-tools)
+  * [Define inputs](#define-inputs)
+  * [Intance scene like node](#intance-scene-like-node)
+- [14. Good Practices](#14-good-practices)
+- [15. Scene Examples](#15-scene-examples)
+  * [Player 2D](#player-2d)
+- [15. CheatSheet](#15-cheatsheet)
+  * [Scene Elements - Nodes](#scene-elements---nodes)
   * [Classes](#classes)
-  * [Relevant Functions](#relevant-functions)
+  * [Relevant Functions and Parameters](#relevant-functions-and-parameters)
   * [Hot Keys](#hot-keys)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 
 ## 1. Install GoDot
 Install GoDot is possible from Steam application or from [GoDot 3.0 download](https://godotengine.org/download/windows) web. In the web appears the normal version (GDScript) and mono version (C# support).<br>
@@ -250,12 +258,48 @@ file.close() #close the file
 * Download ```Export Templates``` if you don't do this before (is all managed inside of Godot, no external downloads required)
 * Export Project
 
-## 13. Define inputs
+## 13. IDE tools
+### Define inputs
 To define inputs go to Project>Project Settings>Input Mapt(tab). Here it is possible define new inputs keys. To evaluate in code the inputs, it is use Input class (that is a singleton)
 
 ![Inputs in Godot](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/inputs.PNG)
 
-## 14. CheatSheet
+### Intance scene like node
+It is so usefull define a scene and after add it into another scene. You can define a enemy in a game and it can be instanciated in any other scene using this tool.
+
+![Instance scene like node](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/instance_like_node.PNG)
+
+
+## 14. Good Practices
+- The code should be easy to read by a human
+- One script should be in charge of one thing
+- Do not have multiple scripts working  on the same thing
+- Do not have one script doing multiple thing
+- Encapsulate
+- If a node of function is missing, the game should run just fine
+
+## 15. Scene Examples
+### Player 2D
+- KinematicBody2D: Define the body type
+  - CollisionShape2D: Define collision
+  - AnimatedSprite: Define the player animation
+  - Camerra2D: Game camera follow the player
+    - ParallaxBackground: To generate parallax efect
+      - ParallaxLayer: Define a parallax level
+        - TextureRect: Texture for this parallax level
+      - ParallaxLayer: Define a parallax level
+        - TextureRect: Texture for this parallax level
+      - ParallaxLayer: Define a parallax level
+        - TextureRect: Texture for this parallax level
+      - ParallaxLayer: Define a parallax level
+        - TextureRect: Texture for this parallax level
+  - AudioStreamPlayer: Define the jump sound
+  - AudioStreamPlayer: Define the jump sound
+
+![Example Player](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/examples_player.PNG)
+
+
+## 15. CheatSheet
 ### Scene Elements - Nodes
 The nodes are the main scene element. Exist many node types, Node2D, Node3D, Control, etc. Each of them has properties according with the node type.
 
@@ -268,11 +312,13 @@ TextureButton | Texture-based button. Supports Pressed, Hover, Disabled and Focu
 Tween | Smoothly animates a node’s properties over time. Tweens are useful for animations requiring a numerical property to be interpolated over a range of values.
 Timer | A countdown timer. Counts down a specified interval and emits a signal on reaching 0. Can be set to repeat or “one shot” mode.
 Sprite | A node that displays a 2D texture. The texture displayed can be a region from a larger atlas texture, or a frame from a sprite sheet animation.
+AnimatedSprite | Animations are created using a SpriteFrames resource, which can be configured in the editor via the SpriteFrames panel.
 Area2D | 2D area that detects CollisionObject2D nodes overlapping, entering, or exiting. Can also alter or override local physics parameters (gravity, damping).
 Physicsbody2D | PhysicsBody2D is an abstract base class for implementing a physics body. All *Body2D types inherit from it. Need CollisionSHape2D to interact with other objects. Need Sprite/AnimatedSprite to set a texture.
 StaticBody2D | Is a body that is not intended to move. It is ideal for implementing objects in the environment, such as walls or platforms. Additionally, a constant linear or angular velocity can be set for the static body, which will affect colliding bodies as if it were moving (for example, a conveyor belt). No designed to move. Great for walls, floors, platforms, etc. Can have simple velocity applied to it.
 RigidBody2D | This node implements simulated 2D physics. You do not control a RigidBody2D directly. Instead you apply forces to it (gravity, impulses, etc.) and the physics simulation calculates the resulting movement based on its mass, friction, and other physical properties. Controlled by 2D physics engine. Built in behaviours for things like gravity and friction. No controlled directly (forces are applied to it). Great for object that are moved by shomething else, not great for player control.
 KinematicBody2D | Meant to be player controlled. No affected by 2D physics engine. Can be moved directly with a control (don't have to move it with external forces)
+Camera2D | Camera node for 2D scenes. It forces the screen (current layer) to scroll following this node. This makes it easier (and faster) to program scrollable scenes than manually changing the position of CanvasItem based nodes. This node is intended to be a simple helper to get things going quickly and it may happen often that more functionality is desired to change how the camera works. To make your own custom camera node, simply inherit from Node2D and change the transform of the canvas by calling get_viewport().set_canvas_transform(m) in Viewport. Can select Current true for set the camera like main view. It is possible modify the camera Zoom and Camera Angle.
 
 
 ### Classes
@@ -280,7 +326,7 @@ Class | Description
 --------|------------
 PoolStringArray | An Array specifically designed to hold String. Optimized for memory usage, does not fragment the memory. Note that this type is passed by value and not by reference.
 
-### Relevant Functions
+### Relevant Functions and Parameters
 Function | Description
 ---------|------------
 grab_focus() | On node set the focus control on it
@@ -321,13 +367,22 @@ move_and_slide() | From KinematicBody2D, when you hit something try and move alo
 _process(delta) | Called during the processing step of the main loop. Processing happens at every frame and as fast as possible, so the delta time since the previous frame is not constant.
 _physics_process(delta) | Called during the physics processing step of the main loop. Physics processing means that the frame rate is synced to the physics, i.e. the delta variable should be constant.
 delta | It is the time in seconds between frames. It is relationship with frame rate changes.
+is_on_floor() | Returns true if the body is on the floor. Only updates when calling move_and_slide().
+is_action_pressed("action") | Returns true if you are pressing the action event. Note that if an action has multiple buttons asigned and more than one of them is pressed, releasing one button will release the action, even if some other button assigned to this action is still pressed.
+is_action_just_pressed("action") | Returns true when the user starts pressing the action event, meaning it's true only on the frame that the user pressed down the button. This is useful for code that needs to run only once when an action is pressed, instead of every frame while it's pressed.
+emit_signal("signal", ...) | Emits the given signal. The signal must exist, so it should be a built-in signal of this class or one of its parent classes, or a user-defined signal. This method supports a variable number of arguments, so parameters are passed as a comma separated list. Example: emit_signal("hit", weapon_type, damage) or emit_signal("game_over")
+
+
 
 ### Hot Keys
 Function | Description
 :-------:|------------
 Crl+shift+F11 | Maximizes the script edition area
-Ctrl+a | Add new object/node
-Ctrl+k | Comment lines
+Ctrl+a | Add new object/node like child of the scene elment selected
+Ctrl+k | Comment code lines selected
+Ctrl+d | Duplicate de scene element selected
+Ctrl+w | Close the script selected
+Ctrl+Shift+w | Close the scene selected
 Alt+"ArrowKey" | Move line code in arrow key direction
 F6 | Run the curren scene
 F5 | Run the main project scene
