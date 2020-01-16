@@ -319,6 +319,7 @@ StaticBody2D | Is a body that is not intended to move. It is ideal for implement
 RigidBody2D | This node implements simulated 2D physics. You do not control a RigidBody2D directly. Instead you apply forces to it (gravity, impulses, etc.) and the physics simulation calculates the resulting movement based on its mass, friction, and other physical properties. Controlled by 2D physics engine. Built in behaviours for things like gravity and friction. No controlled directly (forces are applied to it). Great for object that are moved by shomething else, not great for player control.
 KinematicBody2D | Meant to be player controlled. No affected by 2D physics engine. Can be moved directly with a control (don't have to move it with external forces)
 Camera2D | Camera node for 2D scenes. It forces the screen (current layer) to scroll following this node. This makes it easier (and faster) to program scrollable scenes than manually changing the position of CanvasItem based nodes. This node is intended to be a simple helper to get things going quickly and it may happen often that more functionality is desired to change how the camera works. To make your own custom camera node, simply inherit from Node2D and change the transform of the canvas by calling get_viewport().set_canvas_transform(m) in Viewport. Can select Current true for set the camera like main view. It is possible modify the camera Zoom and Camera Angle.
+TileMap | Node for 2D tile-based maps. Tilemaps use a TileSet which contain a list of tiles (textures plus optional collision, navigation, and/or occluder shapes) which are used to create grid-based maps.
 
 
 ### Classes
@@ -371,8 +372,6 @@ is_on_floor() | Returns true if the body is on the floor. Only updates when call
 is_action_pressed("action") | Returns true if you are pressing the action event. Note that if an action has multiple buttons asigned and more than one of them is pressed, releasing one button will release the action, even if some other button assigned to this action is still pressed.
 is_action_just_pressed("action") | Returns true when the user starts pressing the action event, meaning it's true only on the frame that the user pressed down the button. This is useful for code that needs to run only once when an action is pressed, instead of every frame while it's pressed.
 emit_signal("signal", ...) | Emits the given signal. The signal must exist, so it should be a built-in signal of this class or one of its parent classes, or a user-defined signal. This method supports a variable number of arguments, so parameters are passed as a comma separated list. Example: emit_signal("hit", weapon_type, damage) or emit_signal("game_over")
-
-
 
 ### Hot Keys
 Function | Description
