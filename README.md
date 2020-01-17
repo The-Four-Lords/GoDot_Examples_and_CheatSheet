@@ -235,8 +235,12 @@ TileMap element is used like scene elements library. For example , It is possibl
 
 **The TileMap will be a elements factory where the TileSet define the elements type**.
 
-To create a TileSet it is necessary create a scene. Define the elements into this secene and when all elements are completed (Sprites+StaticBody2D/RigidBody2D+CollisinShape) transform the scene to TileSet
-![TilesSet strtucture](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_00.PNG)
+To create a TileSet it is necessary create a scene. Define the elements into this secene and when all elements are completed (Sprites+StaticBody2D/RigidBody2D+CollisinShape) transform the scene to TileSet.\
+
+
+![TilesSet strtucture](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_00.PNG) {.center}
+
+
 
 To irregular sprites use CollisionPolygon. Using the top menu can add points to describe the polygon
 ![TilesSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_01.PNG)
