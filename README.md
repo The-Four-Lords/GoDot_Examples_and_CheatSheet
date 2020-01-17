@@ -237,7 +237,7 @@ TileMap element is used like scene elements library. For example , It is possibl
 
 To create a TileSet it is necessary create a scene. Define the elements into this secene and when all elements are completed (Sprites+StaticBody2D/RigidBody2D+CollisinShape) transform the scene to TileSet.\
 
-<div aling="center">
+<div align="center">
 
 ![TilesSet strtucture](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_00.PNG)
 
