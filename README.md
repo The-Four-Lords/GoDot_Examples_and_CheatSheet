@@ -14,24 +14,25 @@ A bunch of GoDot examples to play and test the engine elements and tools. Docume
 - [8. Values lists](#8-values-lists)
 - [9. Dictionaries](#9-dictionaries)
 - [10. Objects](#10-objects)
-- [11. Classes](#11-classes)
-  * [File](#file)
-  * [TileSet and TileMap](#tileset-and-tilemap)
+- [11. Classes and Nodes](#11-classes-and-nodes)
+  * [11.1. File](#111-file)
+  * [11.2. TileSet and TileMap](#112-tileset-and-tilemap)
 - [12. Exporting projects](#12-exporting-projects)
-  * [From Godot to Android](#from-godot-to-android)
+  * [12.1. From Godot to Android](#121-from-godot-to-android)
 - [13. IDE tools](#13-ide-tools)
   * [Define inputs](#define-inputs)
-  * [Intance scene like node](#intance-scene-like-node)
-  * [Singletons](#singletons)
+  * [13.1. Intance scene like node](#131-intance-scene-like-node)
+  * [13.2. Singletons](#132-singletons)
+  * [13.3. Adding elements](#133-adding-elements)
 - [14. Good Practices](#14-good-practices)
 - [15. Scene Examples](#15-scene-examples)
-  * [Player 2D](#player-2d)
+  * [15.1. Player 2D](#151-player-2d)
+  * [15.2. TileSet](#152-tileset)
 - [16. CheatSheet](#16-cheatsheet)
-  * [Scene Elements - Nodes](#scene-elements---nodes)
-  * [Classes](#classes)
-  * [Relevant Functions and Parameters](#relevant-functions-and-parameters)
-  * [Hot Keys](#hot-keys)
-
+  * [16.1. Scene Elements - Nodes](#161-scene-elements---nodes)
+  * [16.2. Classes](#162-classes)
+  * [16.3. Relevant Functions and Parameters](#163-relevant-functions-and-parameters)
+  * [16.4. Hot Keys](#164-hot-keys)
 
 ## 1. Install GoDot
 Install GoDot is possible from Steam application or from [GoDot 3.0 download](https://godotengine.org/download/windows) web. In the web appears the normal version (GDScript) and mono version (C# support).<br>
@@ -199,7 +200,7 @@ You build objects from a class throuhg instantiation, a process that takes a pla
 var object : = Object.new()
 ```
 
-## 11. Classes
+## 11. Classes and Nodes
 The objects that are created are of a certain class. To create a new class you must create a **.gd** file<br>
 You can inherit from existing classes using the keyword **extended** at the beginning of the **.gd** file code<br>
 The structure is similar to a Java class (var variables, const constants and func functions)
@@ -220,7 +221,7 @@ func _trhow_spell(spell_name):
   if (spell_name == "expelliarmus"):
     mana -= 20    
 ```
-### File
+### 11.1. File
 In GoDot it is possible open files used to store data like json files. The main comands to work with files are:
 ```gdscript
 var file = File.new() #create a File object
@@ -230,12 +231,12 @@ var data_json = parse_json(text) #if file is a json it is possible transform to 
 file.close() #close the file
 ```
 
-### TileSet and TileMap
+### 11.2. TileSet and TileMap
 TileMap element is used like scene elements library. For example , It is possible define platforms into a TileSet and load this into TileMap.
 
 **The TileMap will be a elements factory where the TileSet define the elements type**.
 
-To create a TileSet it is necessary create a scene. Define the elements into this secene and when all elements are completed (Sprites+StaticBody2D/RigidBody2D+CollisinShape) transform the scene to TileSet.\
+To create a TileSet it is necessary create a scene. Define the elements into this secene and when all elements are completed (Sprites+StaticBody2D/RigidBody2D+CollisinShape) transform the scene to TileSet.
 
 <div align="center">
 
@@ -252,8 +253,12 @@ It is possible duplicate staticBody with collsion to apply to other similar plat
 ![TilesSet reset position](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_02_b.PNG)
 
 When all elemnts are completed, transform the scene to TileSet. Scene -> Conver to -> Tileset
+<div align="center">
+
 ![TilesSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_03_a.PNG)
 ![TilesSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_03_b.PNG)
+
+</div>
 
 To use this TileSet, it must be loaded in a TileMap (factory) into the scene where we want use the TileSet elments.
 ![TilesSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_04_a.PNG)
@@ -261,7 +266,7 @@ To use this TileSet, it must be loaded in a TileMap (factory) into the scene whe
 
 
 ## 12. Exporting projects
-### From Godot to Android
+### 12.1. From Godot to Android
 * Install Android Studio
 * Start Android Studio to complete the dependency installation
 * Install Java JDK
@@ -285,20 +290,20 @@ To define inputs go to Project>Project Settings>Input Mapt(tab). Here it is poss
 
 ![Inputs in Godot](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/inputs.PNG)
 
-### Intance scene like node
+### 13.1. Intance scene like node
 It is so usefull define a scene and after add it into another scene. You can define a enemy in a game and it can be instanciated in any other scene using this tool.
 
 ![Instance scene like node](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/instance_like_node.PNG)
 
-### Singletons
+### 13.2. Singletons
 In GoDot it is possible create singleton classes. Not it is necessary to implement any extra code to do it.
 It is possible access to singleton variables and functions from any script only using the singleton name.
 To create a singleton class is necessary to declare it in Project Settings menu on Autoload tab.
 
-### Adding elements
-- It is possible add graphics elements like Sprite. For to this, select all graphics/image in the FileSystem tab, drag them and drop them into Scene area. A dialog appear to select the node type realtionship with the files dragged and dropped.
-
 ![Singleton in GoDot](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/singleton.PNG)
+
+### 13.3. Adding elements
+- It is possible add graphics elements like Sprite. For to this, select all graphics/image in the FileSystem tab, drag them and drop them into Scene area. A dialog appear to select the node type realtionship with the files dragged and dropped.
 
 ## 14. Good Practices
 - The code should be easy to read by a human
@@ -309,7 +314,7 @@ To create a singleton class is necessary to declare it in Project Settings menu 
 - If a node of function is missing, the game should run just fine
 
 ## 15. Scene Examples
-### Player 2D
+### 15.1. Player 2D
 - KinematicBody2D: Define the body type
   - CollisionShape2D: Define collision
   - AnimatedSprite: Define the player animation
@@ -328,7 +333,7 @@ To create a singleton class is necessary to declare it in Project Settings menu 
 
 ![Example Player](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/examples_player.PNG)
 
-### TileSet
+### 15.2. TileSet
 - Node2D
   - Sprite: Define de texture
     - StaticBody: Define the body type
@@ -345,7 +350,7 @@ To create a singleton class is necessary to declare it in Project Settings menu 
 
 
 ## 16. CheatSheet
-### Scene Elements - Nodes
+### 16.1. Scene Elements - Nodes
 The nodes are the main scene element. Exist many node types, Node2D, Node3D, Control, etc. Each of them has properties according with the node type.
 
 Element | Description
@@ -368,12 +373,12 @@ TileMap | Node for 2D tile-based maps. Tilemaps use a TileSet which contain a li
 TileSet | A TileSet is a library of tiles for a TileMap. It contains a list of tiles, each consisting of a sprite and optional collision shapes.Tiles are referenced by a unique integer ID
 
 
-### Classes
+### 16.2. Classes
 Class | Description
 --------|------------
 PoolStringArray | An Array specifically designed to hold String. Optimized for memory usage, does not fragment the memory. Note that this type is passed by value and not by reference.
 
-### Relevant Functions and Parameters
+### 16.3. Relevant Functions and Parameters
 Function | Description
 ---------|------------
 grab_focus() | On node set the focus control on it
@@ -419,7 +424,7 @@ is_action_pressed("action") | Returns true if you are pressing the action event.
 is_action_just_pressed("action") | Returns true when the user starts pressing the action event, meaning it's true only on the frame that the user pressed down the button. This is useful for code that needs to run only once when an action is pressed, instead of every frame while it's pressed.
 emit_signal("signal", ...) | Emits the given signal. The signal must exist, so it should be a built-in signal of this class or one of its parent classes, or a user-defined signal. This method supports a variable number of arguments, so parameters are passed as a comma separated list. Example: emit_signal("hit", weapon_type, damage) or emit_signal("game_over")
 
-### Hot Keys
+### 16.4. Hot Keys
 Function | Description
 :-------:|------------
 Crl+shift+F11 | Maximizes the script edition area
