@@ -236,19 +236,22 @@ TileMap element is used like scene elements library. For example , It is possibl
 **The TileMap will be a elements factory where the TileSet define the elements type**.
 
 To create a TileSet it is necessary create a scene. Define the elements into this secene and when all elements are completed (Sprites+StaticBody2D/RigidBody2D+CollisinShape) transform the scene to TileSet
+![TilesSet strtucture](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_00.PNG)
 
 To irregular sprites use CollisionPolygon. Using the top menu can add points to describe the polygon
-(image*)
+![TilesSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_01.PNG)
 
-It is possible duplicate staticBody with collsion to apply to other similar platfomrs. But remenber reset the position of staticBody in the transform, on the copied element.
-When the platforms are prepared, convert scene to TileSet
-(image*)
+It is possible duplicate staticBody with collsion to apply to other similar platfomrs. But remenber **reset** the position of staticBody in the transform, on the copied element.
+![TilesSet duplicated staticbody](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_02_a.PNG)
+![TilesSet reset position](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_02_b.PNG)
 
-When all elemnts are completed, transform the scene to TileSet
-(image*)
+When all elemnts are completed, transform the scene to TileSet. Scene -> Conver to -> Tileset
+![TilesSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_03_a.PNG)
+![TilesSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_03_b.PNG)
 
 To use this TileSet, it must be loaded in a TileMap (factory) into the scene where we want use the TileSet elments.
-(image*)
+![TilesSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_04_a.PNG)
+![TilesSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_04_b.PNG)
 
 
 ## 12. Exporting projects
@@ -286,6 +289,9 @@ In GoDot it is possible create singleton classes. Not it is necessary to impleme
 It is possible access to singleton variables and functions from any script only using the singleton name.
 To create a singleton class is necessary to declare it in Project Settings menu on Autoload tab.
 
+### Adding elements
+- It is possible add graphics elements like Sprite. For to this, select all graphics/image in the FileSystem tab, drag them and drop them into Scene area. A dialog appear to select the node type realtionship with the files dragged and dropped.
+
 ![Singleton in GoDot](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/singleton.PNG)
 
 ## 14. Good Practices
@@ -315,6 +321,21 @@ To create a singleton class is necessary to declare it in Project Settings menu 
   - AudioStreamPlayer: Define the jump sound
 
 ![Example Player](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/examples_player.PNG)
+
+### TileSet
+- Node2D
+  - Sprite: Define de texture
+    - StaticBody: Define the body type
+      - CollisionShape2D/CollisionPolygon2D: Define collision
+  - Sprite: Define de texture
+    - StaticBody: Define the body type
+      - CollisionShape2D/CollisionPolygon2D: Define collision
+  - Sprite: Define de texture
+    - StaticBody: Define the body type
+      - CollisionShape2D/CollisionPolygon2D: Define collision            
+
+![Example TileSet](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/examples_tiles.PNG)
+
 
 
 ## 16. CheatSheet
