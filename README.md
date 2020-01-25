@@ -2,37 +2,40 @@
 A bunch of GoDot examples to play and test the engine elements and tools. Documentation and cheatsheet.
 
 ## Table of contents
-- [1. Install GoDot](#1-install-godot)
-- [2. Variables](#2-variables)
-- [3. Constants](#3-constants)
-- [4. Operations and operators](#4-operations-and-operators)
-- [5. Comparing values](#5-comparing-values)
-- [6. Structure controls](#6-structure-controls)
-  * [6.1. If structure control](#61-if-structure-control)
-  * [6.2. Loop structure control](#62-loop-structure-control)
-- [7. Evaluating like booleans](#7-evaluating-like-booleans)
-- [8. Values lists](#8-values-lists)
-- [9. Dictionaries](#9-dictionaries)
-- [10. Objects](#10-objects)
-- [11. Classes and Nodes](#11-classes-and-nodes)
-  * [11.1. File](#111-file)
-  * [11.2. TileSet and TileMap](#112-tileset-and-tilemap)
-- [12. Exporting projects](#12-exporting-projects)
-  * [12.1. From Godot to Android](#121-from-godot-to-android)
-- [13. IDE tools](#13-ide-tools)
-  * [Define inputs](#define-inputs)
-  * [13.1. Intance scene like node](#131-intance-scene-like-node)
-  * [13.2. Singletons](#132-singletons)
-  * [13.3. Adding elements](#133-adding-elements)
-- [14. Good Practices](#14-good-practices)
-- [15. Scene Examples](#15-scene-examples)
-  * [15.1. Player 2D](#151-player-2d)
-  * [15.2. TileSet](#152-tileset)
-- [16. CheatSheet](#16-cheatsheet)
-  * [16.1. Scene Elements - Nodes](#161-scene-elements---nodes)
-  * [16.2. Classes](#162-classes)
-  * [16.3. Relevant Functions and Parameters](#163-relevant-functions-and-parameters)
-  * [16.4. Hot Keys](#164-hot-keys)
+- [GoDot_Examples_and_CheatSheet](#godotexamplesandcheatsheet)
+  - [Table of contents](#table-of-contents)
+  - [1. Install GoDot](#1-install-godot)
+  - [2. Variables](#2-variables)
+  - [3. Constants](#3-constants)
+  - [4. Operations and operators](#4-operations-and-operators)
+  - [5. Comparing values](#5-comparing-values)
+  - [6. Structure controls](#6-structure-controls)
+    - [6.1. If structure control](#61-if-structure-control)
+    - [6.2. Loop structure control](#62-loop-structure-control)
+  - [7. Evaluating like booleans](#7-evaluating-like-booleans)
+  - [8. Values lists](#8-values-lists)
+  - [9. Dictionaries](#9-dictionaries)
+  - [10. Objects](#10-objects)
+  - [11. Classes and Nodes](#11-classes-and-nodes)
+    - [11.1. File](#111-file)
+    - [11.2. TileSet and TileMap](#112-tileset-and-tilemap)
+  - [12. Exporting projects](#12-exporting-projects)
+    - [12.1. From Godot to Android](#121-from-godot-to-android)
+  - [13. IDE tools](#13-ide-tools)
+    - [Define inputs](#define-inputs)
+    - [13.1. Intance scene like node](#131-intance-scene-like-node)
+    - [13.2. Singletons](#132-singletons)
+    - [13.3. Adding elements](#133-adding-elements)
+    - [13.5. Collision Layer and Collision Mask](#135-collision-layer-and-collision-mask)
+  - [14. Good Practices](#14-good-practices)
+  - [15. Scene Examples](#15-scene-examples)
+    - [15.1. Player 2D](#151-player-2d)
+    - [15.2. TileSet](#152-tileset)
+  - [16. CheatSheet](#16-cheatsheet)
+    - [16.1. Scene Elements - Nodes](#161-scene-elements---nodes)
+    - [16.2. Classes](#162-classes)
+    - [16.3. Relevant Functions and Parameters](#163-relevant-functions-and-parameters)
+    - [16.4. Hot Keys](#164-hot-keys)
 
 ## 1. Install GoDot
 Install GoDot is possible from Steam application or from [GoDot 3.0 download](https://godotengine.org/download/windows) web. In the web appears the normal version (GDScript) and mono version (C# support).<br>
@@ -240,29 +243,29 @@ To create a TileSet it is necessary create a scene. Define the elements into thi
 
 <div align="center">
 
-![TilesSet strtucture](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_00.PNG)
+![TileSet strtucture](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_00.PNG)
 
 </div>
 
 
 To irregular sprites use CollisionPolygon. Using the top menu can add points to describe the polygon
-![TilesSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_01.PNG)
+![TileSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_01.PNG)
 
 It is possible duplicate staticBody with collsion to apply to other similar platfomrs. But remenber **reset** the position of staticBody in the transform, on the copied element.
-![TilesSet duplicated staticbody](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_02_a.PNG)
-![TilesSet reset position](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_02_b.PNG)
+![TileSet duplicated staticbody](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_02_a.PNG)
+![TileSet reset position](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_02_b.PNG)
 
 When all elemnts are completed, transform the scene to TileSet. Scene -> Conver to -> Tileset
 <div align="center">
 
-![TilesSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_03_a.PNG)
-![TilesSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_03_b.PNG)
+![TileSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_03_a.PNG)
+![TileSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_03_b.PNG)
 
 </div>
 
 To use this TileSet, it must be loaded in a TileMap (factory) into the scene where we want use the TileSet elments.
-![TilesSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_04_a.PNG)
-![TilesSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_04_b.PNG)
+![TileSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_04_a.PNG)
+![TileSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_04_b.PNG)
 
 
 ## 12. Exporting projects
@@ -303,7 +306,20 @@ To create a singleton class is necessary to declare it in Project Settings menu 
 ![Singleton in GoDot](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/singleton.PNG)
 
 ### 13.3. Adding elements
-- It is possible add graphics elements like Sprite. For to this, select all graphics/image in the FileSystem tab, drag them and drop them into Scene area. A dialog appear to select the node type realtionship with the files dragged and dropped.
+It is possible add graphics elements like Sprite. For to this, select all graphics/image in the FileSystem tab, drag them and drop them into Scene area. A dialog appear to select the node type realtionship with the files dragged and dropped.
+
+### 13.5. Collision Layer and Collision Mask
+The collisoin layers and collisions masks are used to define the elements collision into the game. Theses layers and masks can be asigned to the PhysicsBody2D in the project.
+Godot IDE let define collision layers to after asigne to a PhysicsBody2D object.
+To define a layer go Project>Project Settings>General>Layer Names>2d/3d Physics:
+
+![Singleton in GoDot](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/layer_define.PNG)
+
+To assigne the layer to a object(PhysicsBody2D). Into his Collision section can you select the object layer and the object mask.
+
+
+![Singleton in GoDot](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/layer_asigne.PNG)
+
 
 ## 14. Good Practices
 - The code should be easy to read by a human
