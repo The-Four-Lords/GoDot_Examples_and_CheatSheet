@@ -2,40 +2,41 @@
 A bunch of GoDot examples to play and test the engine elements and tools. Documentation and cheatsheet.
 
 ## Table of contents
-- [GoDot_Examples_and_CheatSheet](#godotexamplesandcheatsheet)
-  - [Table of contents](#table-of-contents)
-  - [1. Install GoDot](#1-install-godot)
-  - [2. Variables](#2-variables)
-  - [3. Constants](#3-constants)
-  - [4. Operations and operators](#4-operations-and-operators)
-  - [5. Comparing values](#5-comparing-values)
-  - [6. Structure controls](#6-structure-controls)
-    - [6.1. If structure control](#61-if-structure-control)
-    - [6.2. Loop structure control](#62-loop-structure-control)
-  - [7. Evaluating like booleans](#7-evaluating-like-booleans)
-  - [8. Values lists](#8-values-lists)
-  - [9. Dictionaries](#9-dictionaries)
-  - [10. Objects](#10-objects)
-  - [11. Classes and Nodes](#11-classes-and-nodes)
-    - [11.1. File](#111-file)
-    - [11.2. TileSet and TileMap](#112-tileset-and-tilemap)
-  - [12. Exporting projects](#12-exporting-projects)
-    - [12.1. From Godot to Android](#121-from-godot-to-android)
-  - [13. IDE tools](#13-ide-tools)
-    - [Define inputs](#define-inputs)
-    - [13.1. Intance scene like node](#131-intance-scene-like-node)
-    - [13.2. Singletons](#132-singletons)
-    - [13.3. Adding elements](#133-adding-elements)
-    - [13.5. Collision Layer and Collision Mask](#135-collision-layer-and-collision-mask)
-  - [14. Good Practices](#14-good-practices)
-  - [15. Scene Examples](#15-scene-examples)
-    - [15.1. Player 2D](#151-player-2d)
-    - [15.2. TileSet](#152-tileset)
-  - [16. CheatSheet](#16-cheatsheet)
-    - [16.1. Scene Elements - Nodes](#161-scene-elements---nodes)
-    - [16.2. Classes](#162-classes)
-    - [16.3. Relevant Functions and Parameters](#163-relevant-functions-and-parameters)
-    - [16.4. Hot Keys](#164-hot-keys)
+- [1. Install GoDot](#1-install-godot)
+- [2. Variables](#2-variables)
+- [3. Constants](#3-constants)
+- [4. Operations and operators](#4-operations-and-operators)
+- [5. Comparing values](#5-comparing-values)
+- [6. Structure controls](#6-structure-controls)
+  * [6.1. If structure control](#61-if-structure-control)
+  * [6.2. Loop structure control](#62-loop-structure-control)
+- [7. Evaluating like booleans](#7-evaluating-like-booleans)
+- [8. Values lists](#8-values-lists)
+- [9. Dictionaries](#9-dictionaries)
+- [10. Objects](#10-objects)
+- [11. Classes and Nodes](#11-classes-and-nodes)
+  * [11.1. File](#111-file)
+  * [11.2. TileSet and TileMap](#112-tileset-and-tilemap)
+- [12. Exporting projects](#12-exporting-projects)
+  * [12.1. From Godot to Android](#121-from-godot-to-android)
+- [13. IDE tools](#13-ide-tools)
+  * [13.1. Define inputs](#131-define-inputs)
+  * [13.2. Intance scene like node](#132-intance-scene-like-node)
+  * [13.3. Singletons](#133-singletons)
+  * [13.4. Adding elements](#134-adding-elements)
+  * [13.5. Collision Layer and Collision Mask](#135-collision-layer-and-collision-mask)
+  * [13.6 Parallax effect](#136-parallax-effect)
+- [14. Good Practices](#14-good-practices)
+- [15. Scene Examples](#15-scene-examples)
+  * [15.1. Player 2D](#151-player-2d)
+  * [15.2. TileSet](#152-tileset)
+  * [15.3. Parallax](#153-parallax)
+- [16. CheatSheet](#16-cheatsheet)
+  * [16.1. Scene Elements - Nodes](#161-scene-elements---nodes)
+  * [16.2. Classes](#162-classes)
+  * [16.3. Relevant Functions and Parameters](#163-relevant-functions-and-parameters)
+  * [16.4. Hot Keys](#164-hot-keys)
+
 
 ## 1. Install GoDot
 Install GoDot is possible from Steam application or from [GoDot 3.0 download](https://godotengine.org/download/windows) web. In the web appears the normal version (GDScript) and mono version (C# support).<br>
@@ -288,24 +289,24 @@ To use this TileSet, it must be loaded in a TileMap (factory) into the scene whe
 * Export Project
 
 ## 13. IDE tools
-### Define inputs
+### 13.1. Define inputs
 To define inputs go to Project>Project Settings>Input Mapt(tab). Here it is possible define new inputs keys. To evaluate in code the inputs, it is use Input class (that is a singleton)
 
 ![Inputs in Godot](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/inputs.PNG)
 
-### 13.1. Intance scene like node
+### 13.2. Intance scene like node
 It is so usefull define a scene and after add it into another scene. You can define a enemy in a game and it can be instanciated in any other scene using this tool.
 
 ![Instance scene like node](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/instance_like_node.PNG)
 
-### 13.2. Singletons
+### 13.3. Singletons
 In GoDot it is possible create singleton classes. Not it is necessary to implement any extra code to do it.
 It is possible access to singleton variables and functions from any script only using the singleton name.
 To create a singleton class is necessary to declare it in Project Settings menu on Autoload tab.
 
 ![Singleton in GoDot](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/singleton.PNG)
 
-### 13.3. Adding elements
+### 13.4. Adding elements
 It is possible add graphics elements like Sprite. For to this, select all graphics/image in the FileSystem tab, drag them and drop them into Scene area. A dialog appear to select the node type realtionship with the files dragged and dropped.
 
 ### 13.5. Collision Layer and Collision Mask
@@ -319,6 +320,15 @@ To assigne the layer to a object(PhysicsBody2D). Into his Collision section can 
 
 
 ![Singleton in GoDot](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/layer_asigne.PNG)
+
+### 13.6 Parallax effect
+Parallax is the phenomenon where objects seem to be in different positions based on our viewing angle. The Parallax element is added to the Camera object (and Camera es usually added to the player):
+- ParallaxBackground element content the ParallaxLayer elemnts, each of them has a TextureRect to asigned a texture.
+- The closer layer is the faster it'll move
+- Background layers are very slow
+- Foreground layers are faster
+- The faster a layer moves, the faster the player will fell like they're going
+- In Godot, we control the speed of Parallax throhg scale
 
 
 ## 14. Good Practices
@@ -363,6 +373,19 @@ To assigne the layer to a object(PhysicsBody2D). Into his Collision section can 
 
 ![Example TileSet](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/examples_tiles.PNG)
 
+### 15.3. Parallax
+- Camera2D
+  - ParallaxBackground: Parallax layers container
+    - ParallaxLayer: Define a layer, Scale attribute define the movement
+      - TextureRect: Define the texture to show
+    - ParallaxLayer: Define a layer, Scale attribute define the movement
+      - TextureRect: Define the texture to show
+    - ParallaxLayer: Define a layer, Scale attribute define the movement
+      - TextureRect: Define the texture to show
+    - ParallaxLayer: Define a layer, Scale attribute define the movement
+      - TextureRect: Define the texture to show
+
+![Example TileSet](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/examples_parallax.PNG)
 
 
 ## 16. CheatSheet
@@ -439,6 +462,7 @@ is_on_floor() | Returns true if the body is on the floor. Only updates when call
 is_action_pressed("action") | Returns true if you are pressing the action event. Note that if an action has multiple buttons asigned and more than one of them is pressed, releasing one button will release the action, even if some other button assigned to this action is still pressed.
 is_action_just_pressed("action") | Returns true when the user starts pressing the action event, meaning it's true only on the frame that the user pressed down the button. This is useful for code that needs to run only once when an action is pressed, instead of every frame while it's pressed.
 emit_signal("signal", ...) | Emits the given signal. The signal must exist, so it should be a built-in signal of this class or one of its parent classes, or a user-defined signal. This method supports a variable number of arguments, so parameters are passed as a comma separated list. Example: emit_signal("hit", weapon_type, damage) or emit_signal("game_over")
+is_on_ceiling() | KinematicBody2D function. Returns true if the body is on the ceiling. Only updates when calling move_and_slide. Use this function to stop element from floating along the underside of platforms.
 
 ### 16.4. Hot Keys
 Function | Description
