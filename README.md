@@ -357,7 +357,11 @@ Parallax is the phenomenon where objects seem to be in different positions based
   - AudioStreamPlayer: Define the jump sound
   - AudioStreamPlayer: Define the jump sound
 
+<div align="center">
+
 ![Example Player](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/examples_player.PNG)
+
+</div>
 
 ### 15.2. TileSet
 - Node2D
@@ -371,7 +375,11 @@ Parallax is the phenomenon where objects seem to be in different positions based
     - StaticBody: Define the body type
       - CollisionShape2D/CollisionPolygon2D: Define collision            
 
+<div align="center">
+
 ![Example TileSet](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/examples_tiles.PNG)
+
+</div>
 
 ### 15.3. Parallax
 - Camera2D
@@ -385,7 +393,11 @@ Parallax is the phenomenon where objects seem to be in different positions based
     - ParallaxLayer: Define a layer, Scale attribute define the movement
       - TextureRect: Define the texture to show
 
+<div align="center">
+
 ![Example TileSet](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/examples_parallax.PNG)
+
+</div>
 
 
 ## 16. CheatSheet
