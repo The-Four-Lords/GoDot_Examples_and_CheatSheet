@@ -324,12 +324,12 @@ To assigne the layer to a object(PhysicsBody2D). Into his Collision section can 
 ### 13.6 Parallax effect
 Parallax is the phenomenon where objects seem to be in different positions based on our viewing angle. The Parallax element is added to the Camera object (and Camera es usually added to the player):
 - ParallaxBackground element content the ParallaxLayer elemnts, each of them has a TextureRect to asigned a texture.
+- CanvasParallax: Ingore Camara Z on, It is possible change Base Offset here
 - The closer layer is the faster it'll move
 - Background layers are very slow
 - Foreground layers are faster
 - The faster a layer moves, the faster the player will fell like they're going
 - In Godot, we control the speed of Parallax throhg scale
-
 
 ## 14. Good Practices
 - The code should be easy to read by a human
@@ -422,7 +422,12 @@ KinematicBody2D | Meant to be player controlled. No affected by 2D physics engin
 Camera2D | Camera node for 2D scenes. It forces the screen (current layer) to scroll following this node. This makes it easier (and faster) to program scrollable scenes than manually changing the position of CanvasItem based nodes. This node is intended to be a simple helper to get things going quickly and it may happen often that more functionality is desired to change how the camera works. To make your own custom camera node, simply inherit from Node2D and change the transform of the canvas by calling get_viewport().set_canvas_transform(m) in Viewport. Can select Current true for set the camera like main view. It is possible modify the camera Zoom and Camera Angle.
 TileMap | Node for 2D tile-based maps. Tilemaps use a TileSet which contain a list of tiles (textures plus optional collision, navigation, and/or occluder shapes) which are used to create grid-based maps.
 TileSet | A TileSet is a library of tiles for a TileMap. It contains a list of tiles, each consisting of a sprite and optional collision shapes.Tiles are referenced by a unique integer ID
-
+ParallaxLayer | A ParallaxLayer must be the child of a ParallaxBackground node. Each ParallaxLayer can be set to move at different speeds relative to the camera movement or the ParallaxBackground.scroll_offset value. This node’s children will be affected by its scroll offset. Note that any changes to this node’s position and scale made after it enters the scene will be ignored.Mirroring according the texture image size, Offset to move the texture (no in time), Scale let done parallax effect, each of them with different scale
+CenterContainer | CenterContainer Keeps children controls centered. This container keeps all children to their minimum size, in the center
+BoxContainer | Arranges child controls vertically or horizontally, and rearranges the controls automatically when their minimum size changes
+VBoxContainer | Vertical box container. See BoxContainer
+HBoxContainer | Horizontal box container. See BoxContainer
+Label | Label displays plain text on the screen. It gives you control over the horizontal and vertical alignment, and can wrap the text inside the node’s bounding rectangle. It doesn’t support bold, italics or other formatting. For that, use RichTextLabel instead. "Use filter" option into dynamic font, smoth the font
 
 ### 16.2. Classes
 Class | Description
