@@ -19,23 +19,24 @@ A bunch of GoDot examples to play and test the engine elements and tools. Docume
   - [11. Classes and Nodes](#11-classes-and-nodes)
     - [11.1. File](#111-file)
     - [11.2. TileSet and TileMap](#112-tileset-and-tilemap)
-  - [12. Exporting projects](#12-exporting-projects)
-    - [12.1. From Godot to Android](#121-from-godot-to-android)
-  - [13. IDE tools](#13-ide-tools)
-    - [Define inputs](#define-inputs)
-    - [13.1. Intance scene like node](#131-intance-scene-like-node)
-    - [13.2. Singletons](#132-singletons)
-    - [13.3. Adding elements](#133-adding-elements)
-    - [13.5. Collision Layer and Collision Mask](#135-collision-layer-and-collision-mask)
-  - [14. Good Practices](#14-good-practices)
-  - [15. Scene Examples](#15-scene-examples)
-    - [15.1. Player 2D](#151-player-2d)
-    - [15.2. TileSet](#152-tileset)
-  - [16. CheatSheet](#16-cheatsheet)
-    - [16.1. Scene Elements - Nodes](#161-scene-elements---nodes)
-    - [16.2. Classes](#162-classes)
-    - [16.3. Relevant Functions and Parameters](#163-relevant-functions-and-parameters)
-    - [16.4. Hot Keys](#164-hot-keys)
+  - [12. Parallax](#12-parallax)
+  - [13. Exporting projects](#13-exporting-projects)
+    - [13.1. From Godot to Android](#131-from-godot-to-android)
+  - [14. IDE tools](#14-ide-tools)
+    - [14.1. Define inputs](#141-define-inputs)
+    - [14.2. Intance scene like node](#142-intance-scene-like-node)
+    - [14.3. Singletons](#143-singletons)
+    - [14.4. Adding elements](#144-adding-elements)
+    - [14.5. Collision Layer and Collision Mask](#145-collision-layer-and-collision-mask)
+  - [15. Good Practices](#15-good-practices)
+  - [16. Scene Examples](#16-scene-examples)
+    - [16.1. Player 2D](#161-player-2d)
+    - [16.2. TileSet](#162-tileset)
+  - [17. CheatSheet](#17-cheatsheet)
+    - [17.1. Scene Elements - Nodes](#171-scene-elements---nodes)
+    - [17.2. Classes](#172-classes)
+    - [17.3. Relevant Functions and Parameters](#173-relevant-functions-and-parameters)
+    - [17.4. Hot Keys](#174-hot-keys)
 
 ## 1. Install GoDot
 Install GoDot is possible from Steam application or from [GoDot 3.0 download](https://godotengine.org/download/windows) web. In the web appears the normal version (GDScript) and mono version (C# support).<br>
@@ -251,7 +252,7 @@ To create a TileSet it is necessary create a scene. Define the elements into thi
 To irregular sprites use CollisionPolygon. Using the top menu can add points to describe the polygon
 ![TileSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_01.PNG)
 
-It is possible duplicate staticBody with collsion to apply to other similar platfomrs. But remenber **reset** the position of staticBody in the transform, on the copied element.
+It is possible duplicate staticBody with collsion to apply to other similar platfomrs. But remenber **reset** the position of staticBody in the transform, on the copied element. The element position is relative from his parent.
 ![TileSet duplicated staticbody](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_02_a.PNG)
 ![TileSet reset position](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_02_b.PNG)
 
@@ -267,9 +268,10 @@ To use this TileSet, it must be loaded in a TileMap (factory) into the scene whe
 ![TileSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_04_a.PNG)
 ![TileSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_04_b.PNG)
 
+## 12. Parallax
 
-## 12. Exporting projects
-### 12.1. From Godot to Android
+## 13. Exporting projects
+### 13.1. From Godot to Android
 * Install Android Studio
 * Start Android Studio to complete the dependency installation
 * Install Java JDK
@@ -287,28 +289,28 @@ To use this TileSet, it must be loaded in a TileMap (factory) into the scene whe
 * Download ```Export Templates``` if you don't do this before (is all managed inside of Godot, no external downloads required)
 * Export Project
 
-## 13. IDE tools
-### Define inputs
+## 14. IDE tools
+### 14.1. Define inputs
 To define inputs go to Project>Project Settings>Input Mapt(tab). Here it is possible define new inputs keys. To evaluate in code the inputs, it is use Input class (that is a singleton)
 
 ![Inputs in Godot](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/inputs.PNG)
 
-### 13.1. Intance scene like node
+### 14.2. Intance scene like node
 It is so usefull define a scene and after add it into another scene. You can define a enemy in a game and it can be instanciated in any other scene using this tool.
 
 ![Instance scene like node](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/instance_like_node.PNG)
 
-### 13.2. Singletons
+### 14.3. Singletons
 In GoDot it is possible create singleton classes. Not it is necessary to implement any extra code to do it.
 It is possible access to singleton variables and functions from any script only using the singleton name.
 To create a singleton class is necessary to declare it in Project Settings menu on Autoload tab.
 
 ![Singleton in GoDot](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/singleton.PNG)
 
-### 13.3. Adding elements
+### 14.4. Adding elements
 It is possible add graphics elements like Sprite. For to this, select all graphics/image in the FileSystem tab, drag them and drop them into Scene area. A dialog appear to select the node type realtionship with the files dragged and dropped.
 
-### 13.5. Collision Layer and Collision Mask
+### 14.5. Collision Layer and Collision Mask
 The collisoin layers and collisions masks are used to define the elements collision into the game. Theses layers and masks can be asigned to the PhysicsBody2D in the project.
 Godot IDE let define collision layers to after asigne to a PhysicsBody2D object.
 To define a layer go Project>Project Settings>General>Layer Names>2d/3d Physics:
@@ -321,7 +323,7 @@ To assigne the layer to a object(PhysicsBody2D). Into his Collision section can 
 ![Singleton in GoDot](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/layer_asigne.PNG)
 
 
-## 14. Good Practices
+## 15. Good Practices
 - The code should be easy to read by a human
 - One script should be in charge of one thing
 - Do not have multiple scripts working  on the same thing
@@ -329,8 +331,8 @@ To assigne the layer to a object(PhysicsBody2D). Into his Collision section can 
 - Encapsulate
 - If a node of function is missing, the game should run just fine
 
-## 15. Scene Examples
-### 15.1. Player 2D
+## 16. Scene Examples
+### 16.1. Player 2D
 - KinematicBody2D: Define the body type
   - CollisionShape2D: Define collision
   - AnimatedSprite: Define the player animation
@@ -349,7 +351,7 @@ To assigne the layer to a object(PhysicsBody2D). Into his Collision section can 
 
 ![Example Player](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/examples_player.PNG)
 
-### 15.2. TileSet
+### 16.2. TileSet
 - Node2D
   - Sprite: Define de texture
     - StaticBody: Define the body type
@@ -365,8 +367,8 @@ To assigne the layer to a object(PhysicsBody2D). Into his Collision section can 
 
 
 
-## 16. CheatSheet
-### 16.1. Scene Elements - Nodes
+## 17. CheatSheet
+### 17.1. Scene Elements - Nodes
 The nodes are the main scene element. Exist many node types, Node2D, Node3D, Control, etc. Each of them has properties according with the node type.
 
 Element | Description
@@ -389,12 +391,12 @@ TileMap | Node for 2D tile-based maps. Tilemaps use a TileSet which contain a li
 TileSet | A TileSet is a library of tiles for a TileMap. It contains a list of tiles, each consisting of a sprite and optional collision shapes.Tiles are referenced by a unique integer ID
 
 
-### 16.2. Classes
+### 17.2. Classes
 Class | Description
 --------|------------
 PoolStringArray | An Array specifically designed to hold String. Optimized for memory usage, does not fragment the memory. Note that this type is passed by value and not by reference.
 
-### 16.3. Relevant Functions and Parameters
+### 17.3. Relevant Functions and Parameters
 Function | Description
 ---------|------------
 grab_focus() | On node set the focus control on it
@@ -439,8 +441,9 @@ is_on_floor() | Returns true if the body is on the floor. Only updates when call
 is_action_pressed("action") | Returns true if you are pressing the action event. Note that if an action has multiple buttons asigned and more than one of them is pressed, releasing one button will release the action, even if some other button assigned to this action is still pressed.
 is_action_just_pressed("action") | Returns true when the user starts pressing the action event, meaning it's true only on the frame that the user pressed down the button. This is useful for code that needs to run only once when an action is pressed, instead of every frame while it's pressed.
 emit_signal("signal", ...) | Emits the given signal. The signal must exist, so it should be a built-in signal of this class or one of its parent classes, or a user-defined signal. This method supports a variable number of arguments, so parameters are passed as a comma separated list. Example: emit_signal("hit", weapon_type, damage) or emit_signal("game_over")
+is_on_ceiling() | On KinematicBody2D. Returns true if the body is on the ceilling. Only updates when calling move_and_slide. Can use this function to stop element from floating along the underside platforms
 
-### 16.4. Hot Keys
+### 17.4. Hot Keys
 Function | Description
 :-------:|------------
 Crl+shift+F11 | Maximizes the script edition area
