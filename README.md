@@ -331,6 +331,10 @@ Parallax is the phenomenon where objects seem to be in different positions based
 - The faster a layer moves, the faster the player will fell like they're going
 - In Godot, we control the speed of Parallax throhg scale
 
+### 13.7 Signals and Groups
+- A signal is a predetermined message from a known sender to a know recipient
+- A group is a broadcast to anyone who might be listening for it. Every node can be assigned as many groups as you want to create, e.g. a “enemy” group. You can then iterate these groups or even call methods and set properties on all the group’s members at once
+
 ## 14. Good Practices
 - The code should be easy to read by a human
 - One script should be in charge of one thing
@@ -428,6 +432,9 @@ BoxContainer | Arranges child controls vertically or horizontally, and rearrange
 VBoxContainer | Vertical box container. See BoxContainer
 HBoxContainer | Horizontal box container. See BoxContainer
 Label | Label displays plain text on the screen. It gives you control over the horizontal and vertical alignment, and can wrap the text inside the node’s bounding rectangle. It doesn’t support bold, italics or other formatting. For that, use RichTextLabel instead. "Use filter" option into dynamic font, smoth the font
+AudioStreamPlayer2D | Plays audio that dampens with distance from screen center
+AudioStreamPlayer3D | Plays a sound effect with directed sound effects, dampens with distance if needed, generates effect of hearable position in space
+AnimationPlayer | An animation player is used for general purpose playback of Animation resources. It contains a dictionary of animations (referenced by name) and custom blend times between their transitions. Additionally, animations can be played and blended in different channels. Let change any element property value in time
 
 ### 16.2. Classes
 Class | Description
