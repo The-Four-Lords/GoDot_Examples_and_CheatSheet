@@ -333,7 +333,9 @@ Parallax is the phenomenon where objects seem to be in different positions based
 
 ### 13.7 Signals and Groups
 - A signal is a predetermined message from a known sender to a know recipient
-- A group is a broadcast to anyone who might be listening for it. Every node can be assigned as many groups as you want to create, e.g. a “enemy” group. You can then iterate these groups or even call methods and set properties on all the group’s members at once
+- A group is a broadcast to anyone who might be listening for it. Every node can be assigned as many groups as you want to create, e.g. a “enemy” group. You can then iterate these groups or even call methods and set properties on all the group’s members at once.
+  - void add_to_group( String group, bool persistent=false ) to add
+
 
 ## 14. Good Practices
 - The code should be easy to read by a human
@@ -342,6 +344,15 @@ Parallax is the phenomenon where objects seem to be in different positions based
 - Do not have one script doing multiple thing
 - Encapsulate
 - If a node of function is missing, the game should run just fine
+- CanvasLayer node to create GUI
+- Create a generic Node and add scenes instances (Hazards, Coins, Jumpads) to create items group
+- It is possible check the tree() nodes while the game is executing, use "Remote" option in Scene tab to know what happen in the game while execute it.
+
+<div align="center">
+
+![Example Player](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/remote_option.PNG)
+
+</div>
 
 ## 15. Scene Examples
 ### 15.1. Player 2D
@@ -399,7 +410,34 @@ Parallax is the phenomenon where objects seem to be in different positions based
 
 <div align="center">
 
-![Example TileSet](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/examples_parallax.PNG)
+![Example Parallax](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/examples_parallax.PNG)
+
+</div>
+
+### 15.4. Bullet/Lightning element
+- Node2D
+  - Area2D: Define the collision layer
+    - AnimatedSprite: Define the animation
+    - CollisionShape2D: Define the collision area shape
+    - VisibilityNotifier2D: Define the visibility control on element into the screen
+
+<div align="center">
+
+![Example Lightning](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/examples_lightning.PNG)
+
+</div>
+
+### 15.5. Magical Portal/Vortex
+- Node2D
+  - Area2D: Define the collision layer
+    - Sprite: Define the sprite
+    - CollisionShape2D: Define the collision area shape
+    - AnimationPlayer: Define the properties animation
+    - Particles2D: Define the particles 2D system on element
+
+<div align="center">
+
+![Example Portal](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/examples_portal.PNG)
 
 </div>
 
@@ -435,6 +473,10 @@ Label | Label displays plain text on the screen. It gives you control over the h
 AudioStreamPlayer2D | Plays audio that dampens with distance from screen center
 AudioStreamPlayer3D | Plays a sound effect with directed sound effects, dampens with distance if needed, generates effect of hearable position in space
 AnimationPlayer | An animation player is used for general purpose playback of Animation resources. It contains a dictionary of animations (referenced by name) and custom blend times between their transitions. Additionally, animations can be played and blended in different channels. Let change any element property value in time
+CanvasLayer | Canvas drawing layer. CanvasItem nodes that are direct or indirect children of a CanvasLayer will be drawn in that layer. The layer is a numeric index that defines the draw order. The default 2D scene renders with index 0, so a CanvasLayer with index -1 will be drawn below, and one with index 1 will be drawn above. This is very useful for HUDs (in layer 1+ or above), or backgrounds (in layer -1 or below)
+RayCast2D | To detect objects close the ray. A RayCast represents a line from its origin to its destination position, cast_to. It is used to query the 2D space in order to find the closest object along the path of the ray. RayCast2D can ignore some objects by adding them to the exception list via add_exception, by setting proper filtering with collision layers, or by filtering object types with type masks. RayCast2D can be configured to report collisions with Area2Ds (collide_with_areas) and/or PhysicsBody2Ds (collide_with_bodies). Only enabled raycasts will be able to query the space and report collisions. RayCast2D calculates intersection every physics frame (see Node), and the result is cached so it can be used later until the next frame. If multiple queries are required between physics frames (or during the same frame) use force_raycast_update after adjusting the raycast
+VisibilityNotifier2D | To know when go out the screen. The VisibilityNotifier2D is used to notify when its bounding rectangle enters the screen, is visible on the screen, or when it exits the screen
+Particles2D | 2D particle node used to create a variety of particle systems and effects. Particles2D features an emitter that generates some number of particles at a given rate. Use the process_material property to add a ParticlesMaterial to configure particle appearance and behavior. Alternatively, you can add a ShaderMaterial which will be applied to all particles
 
 ### 16.2. Classes
 Class | Description
@@ -487,6 +529,7 @@ is_action_pressed("action") | Returns true if you are pressing the action event.
 is_action_just_pressed("action") | Returns true when the user starts pressing the action event, meaning it's true only on the frame that the user pressed down the button. This is useful for code that needs to run only once when an action is pressed, instead of every frame while it's pressed.
 emit_signal("signal", ...) | Emits the given signal. The signal must exist, so it should be a built-in signal of this class or one of its parent classes, or a user-defined signal. This method supports a variable number of arguments, so parameters are passed as a comma separated list. Example: emit_signal("hit", weapon_type, damage) or emit_signal("game_over")
 is_on_ceiling() | KinematicBody2D function. Returns true if the body is on the ceiling. Only updates when calling move_and_slide. Use this function to stop element from floating along the underside of platforms.
+get_overlapping_bodies() | Area2D function. Returns a list of intersecting PhysicsBody2Ds. For performance reasons (collisions are all processed at the same time) this list is modified once during the physics step, not immediately after objects are moved. Consider using signals instead.
 
 ### 16.4. Hot Keys
 Function | Description
