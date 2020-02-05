@@ -26,16 +26,20 @@ A bunch of GoDot examples to play and test the engine elements and tools. Docume
   * [13.4. Adding elements](#134-adding-elements)
   * [13.5. Collision Layer and Collision Mask](#135-collision-layer-and-collision-mask)
   * [13.6 Parallax effect](#136-parallax-effect)
+  * [13.7 Signals and Groups](#137-signals-and-groups)
 - [14. Good Practices](#14-good-practices)
 - [15. Scene Examples](#15-scene-examples)
   * [15.1. Player 2D](#151-player-2d)
   * [15.2. TileSet](#152-tileset)
   * [15.3. Parallax](#153-parallax)
+  * [15.4. Bullet/Lightning element](#154-bullet-lightning-element)
+  * [15.5. Magical Portal/Vortex](#155-magical-portal-vortex)
 - [16. CheatSheet](#16-cheatsheet)
   * [16.1. Scene Elements - Nodes](#161-scene-elements---nodes)
   * [16.2. Classes](#162-classes)
   * [16.3. Relevant Functions and Parameters](#163-relevant-functions-and-parameters)
   * [16.4. Hot Keys](#164-hot-keys)
+
 
 
 ## 1. Install GoDot
