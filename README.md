@@ -70,6 +70,8 @@ var variable_name : = 100
 var variable_name : int = 100
 ```
 
+<div align="center">
+
 |FEATURES | DYNAMIC | TYPED|
 |---------|:-------:|:----:|
 |Fast implementation | + | - |
@@ -77,6 +79,8 @@ var variable_name : int = 100
 |Error control | - | + |
 |Scalability | - | + |
 |Big apps | - | + |
+
+</div>
 
 Typed script make the code more handle from the inspector if export the variables.
 
@@ -322,8 +326,11 @@ To define a layer go Project>Project Settings>General>Layer Names>2d/3d Physics:
 
 To assigne the layer to a object(PhysicsBody2D). Into his Collision section can you select the object layer and the object mask.
 
+<div align="center">
 
 ![Singleton in GoDot](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/layer_asigne.PNG)
+
+</div>
 
 ### 13.6 Parallax effect
 Parallax is the phenomenon where objects seem to be in different positions based on our viewing angle. The Parallax element is added to the Camera object (and Camera es usually added to the player):
