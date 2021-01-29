@@ -19,9 +19,9 @@ A bunch of GoDot examples to play and test the engine elements and tools. Docume
   - [11. Classes and Nodes](#11-classes-and-nodes)
     - [11.1. File](#111-file)
     - [11.2. TileSet and TileMap](#112-tileset-and-tilemap)
-  - [12. Parallax](#12-parallax)
-  - [13. Exporting projects](#13-exporting-projects)
-    - [13.1. From Godot to Android](#131-from-godot-to-android)
+    - [11.3. Autotile](#113-autotile)
+  - [12. Exporting projects](#12-exporting-projects)
+    - [12.1. From Godot to Android](#121-from-godot-to-android)
   - [13. IDE tools](#13-ide-tools)
     - [13.1. Define inputs](#131-define-inputs)
     - [13.2. Intance scene like node](#132-intance-scene-like-node)
@@ -39,9 +39,9 @@ A bunch of GoDot examples to play and test the engine elements and tools. Docume
     - [15.5. Magical Portal/Vortex](#155-magical-portalvortex)
   - [16. CheatSheet](#16-cheatsheet)
     - [16.1. Scene Elements - Nodes](#161-scene-elements---nodes)
-    - [17.2. Classes](#172-classes)
-    - [17.3. Relevant Functions and Parameters](#173-relevant-functions-and-parameters)
-    - [17.4. Hot Keys](#174-hot-keys)
+    - [16.2. Classes](#162-classes)
+    - [16.3. Relevant Functions and Parameters](#163-relevant-functions-and-parameters)
+    - [16.4. Hot Keys](#164-hot-keys)
 
 
 
@@ -279,10 +279,31 @@ To use this TileSet, it must be loaded in a TileMap (factory) into the scene whe
 ![TileSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_04_a.PNG)
 ![TileSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_04_b.PNG)
 
-## 12. Parallax
+### 11.3. Autotile
+It is possible load a sprite sheet map into the TileMap. The previous point shows a TileSet with serveral sprites. This concept is different, is a TileSet with only one sprite, and this sprite is a tiles map.
+A TileMap where you can create tiles from sections of the loaded tile map allows you to optimize the performance of the games.
+  1. Create a scene with Node2D->Sprite, the sprite must be a tiles map, and convert to TileSet (Tiles.tres). Save the scene too(TileShet.tscn).
+  ![Autotile - TileSet](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotile_01_a.PNG)
+  1. Create a scene with a TileMap and load in Tile Set property into TileMap the TileSet previously created
+  ![Autotile - Scene with TileMap](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotile_02_a.PNG)
+  3. To create the tiles for design the scene must click on Tile Set properti into TileMap, a new seccion will be open in the IDE.
+  ![Autotile -TileSet edit](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotile_03_a.PNG)
+  4. Expand the Edit box, select the TileSet image na click in **New Autotile**
+  ![Autotile -TileSet edit](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotile_04_a.PNG)
+  5. A new button **Region** will appears, select the region into the image that you use to define the sprite.
+  ![Autotile -TileSet edit](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotile_05_a.PNG)
+  6. With the region selected, can define **Bitmask** for define your tile image. It is important the **Autotile Bitmask** will be 3x3 to define the Bitmask.
+  ![Autotile -TileSet edit](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotile_06_a.PNG)
+  7. **Priority** option to define of the different slices selected, the randomize priority. To define the priority must use the edit box previous to the image.
+  ![Autotile -TileSet edit](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotile_07_a.PNG)
+  8. In Collision can define the collision shape for the slices.
+  ![Autotile -TileSet edit](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotile_08_a.PNG)
 
-## 13. Exporting projects
-### 13.1. From Godot to Android
+Each of Autotile defined with **New Autotile** option will appear like selectable tile to define your secene
+  ![Autotile -TileSet edit](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotile_08_a.PNG)
+
+## 12. Exporting projects
+### 12.1. From Godot to Android
 * Install Android Studio
 * Start Android Studio to complete the dependency installation
 * Install Java JDK
@@ -495,12 +516,12 @@ VisibilityNotifier2D | To know when go out the screen. The VisibilityNotifier2D 
 Particles2D | 2D particle node used to create a variety of particle systems and effects. Particles2D features an emitter that generates some number of particles at a given rate. Use the process_material property to add a ParticlesMaterial to configure particle appearance and behavior. Alternatively, you can add a ShaderMaterial which will be applied to all particles
 
 
-### 17.2. Classes
+### 16.2. Classes
 Class | Description
 --------|------------
 PoolStringArray | An Array specifically designed to hold String. Optimized for memory usage, does not fragment the memory. Note that this type is passed by value and not by reference.
 
-### 17.3. Relevant Functions and Parameters
+### 16.3. Relevant Functions and Parameters
 Function | Description
 ---------|------------
 grab_focus() | On node set the focus control on it
@@ -553,7 +574,7 @@ clamp(value, min, max) | Clamps value and returns a value not less than min and 
 lerp(from, to, weight) | Linearly interpolates between two values by a normalized value. This is the opposite of inverse_lerp(). Applied on Nodes, is usefull to create different floor material sensation where the node is in movement
 
 
-### 17.4. Hot Keys
+### 16.4. Hot Keys
 Function | Description
 :-------:|------------
 Crl+shift+F11 | Maximizes the script edition area
