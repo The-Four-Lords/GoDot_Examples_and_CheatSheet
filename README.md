@@ -541,9 +541,10 @@ is_action_just_pressed("action") | Returns true when the user starts pressing th
 emit_signal("signal", ...) | Emits the given signal. The signal must exist, so it should be a built-in signal of this class or one of its parent classes, or a user-defined signal. This method supports a variable number of arguments, so parameters are passed as a comma separated list. Example: emit_signal("hit", weapon_type, damage) or emit_signal("game_over")
 is_on_ceiling() | KinematicBody2D function. Returns true if the body is on the ceiling. Only updates when calling move_and_slide. Use this function to stop element from floating along the underside of platforms.
 get_overlapping_bodies() | Area2D function. Returns a list of intersecting PhysicsBody2Ds. For performance reasons (collisions are all processed at the same time) this list is modified once during the physics step, not immediately after objects are moved. Consider using signals instead.
-look_at() | Rotates the node so it points towards the point, which is expected to use global coordinates.
-get_global_mouse_position | Returns the global position of the mouse.
-
+look_at() | Node2D function. Rotates the node so it points towards the point, which is expected to use global coordinates.
+get_global_mouse_position | CanvasItem function. Returns the global position of the mouse.
+clamp(value, min, max) | Clamps value and returns a value not less than min and not more than max. Usefull to nodes movement
+lerp(from, to, weight) | Linearly interpolates between two values by a normalized value. This is the opposite of inverse_lerp(). Applied on Nodes, is usefull to create different floor material sensation where the node is in movement
 
 
 ### 16.4. Hot Keys
