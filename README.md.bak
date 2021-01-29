@@ -343,13 +343,7 @@ Parallax is the phenomenon where objects seem to be in different positions based
 - The faster a layer moves, the faster the player will fell like they're going
 - In Godot, we control the speed of Parallax throhg scale
 
-### 13.7 Signals and Groups
-- A signal is a predetermined message from a known sender to a know recipient
-- A group is a broadcast to anyone who might be listening for it. Every node can be assigned as many groups as you want to create, e.g. a “enemy” group. You can then iterate these groups or even call methods and set properties on all the group’s members at once.
-  - void add_to_group( String group, bool persistent=false ) to add
-
-
-## 14. Good Practices
+## 15. Good Practices
 - The code should be easy to read by a human
 - One script should be in charge of one thing
 - Do not have multiple scripts working  on the same thing
@@ -366,9 +360,8 @@ Parallax is the phenomenon where objects seem to be in different positions based
 
 </div>
 
-## 15. Scene Examples
-### 15.1. Player 2D
-- KinematicBody2D: De
+## 16. Scene Examples
+### 16.1. Player 2D
 - KinematicBody2D: Define the body type
   - CollisionShape2D: Define collision
   - AnimatedSprite: Define the player animation
