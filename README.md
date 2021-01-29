@@ -279,28 +279,28 @@ To use this TileSet, it must be loaded in a TileMap (factory) into the scene whe
 ![TileSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_04_a.PNG)
 ![TileSet collision](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/tiles_04_b.PNG)
 
-### 11.3. Autotile
+### 11.3. Autotiling
 It is possible load a sprite sheet map into the TileMap. The previous point shows a TileSet with serveral sprites. This concept is different, is a TileSet with only one sprite, and this sprite is a tiles map.
 A TileMap where you can create tiles from sections of the loaded tile map allows you to optimize the performance of the games.
   1. Create a scene with Node2D->Sprite, the sprite must be a tiles map, and convert to TileSet (Tiles.tres). Save the scene too(TileShet.tscn).
-  ![Autotile - TileSet](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotile_01_a.PNG)
+  ![Autotile - TileSet](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotiles_01_a.PNG)
   1. Create a scene with a TileMap and load in Tile Set property into TileMap the TileSet previously created
-  ![Autotile - Scene with TileMap](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotile_02_a.PNG)
+  ![Autotile - Scene with TileMap](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotiles_02_a.PNG)
   3. To create the tiles for design the scene must click on Tile Set properti into TileMap, a new seccion will be open in the IDE.
-  ![Autotile -TileSet edit](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotile_03_a.PNG)
+  ![Autotile -TileSet edit](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotiles_03_a.PNG)
   4. Expand the Edit box, select the TileSet image na click in **New Autotile**
-  ![Autotile -TileSet edit](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotile_04_a.PNG)
+  ![Autotile -TileSet edit](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotiles_04_a.PNG)
   5. A new button **Region** will appears, select the region into the image that you use to define the sprite.
-  ![Autotile -TileSet edit](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotile_05_a.PNG)
+  ![Autotile -TileSet edit](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotiles_05_a.PNG)
   6. With the region selected, can define **Bitmask** for define your tile image. It is important the **Autotile Bitmask** will be 3x3 to define the Bitmask.
-  ![Autotile -TileSet edit](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotile_06_a.PNG)
+  ![Autotile -TileSet edit](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotiles_06_a.PNG)
   7. **Priority** option to define of the different slices selected, the randomize priority. To define the priority must use the edit box previous to the image.
-  ![Autotile -TileSet edit](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotile_07_a.PNG)
+  ![Autotile -TileSet edit](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotiles_07_a.PNG)
   8. In Collision can define the collision shape for the slices.
-  ![Autotile -TileSet edit](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotile_08_a.PNG)
+  ![Autotile -TileSet edit](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotiles_08_a.PNG)
 
 Each of Autotile defined with **New Autotile** option will appear like selectable tile to define your secene
-  ![Autotile -TileSet edit](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotile_08_a.PNG)
+  ![Autotile -TileSet edit](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/autotile_09_a.PNG)
 
 ## 12. Exporting projects
 ### 12.1. From Godot to Android
