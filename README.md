@@ -12,6 +12,7 @@ A bunch of GoDot examples to play and test the engine elements and tools. Docume
   - [6. Structure controls](#6-structure-controls)
     - [6.1. If structure control](#61-if-structure-control)
     - [6.2. Loop structure control](#62-loop-structure-control)
+    - [6.3 Yield](#63-yield)
   - [7. Evaluating like booleans](#7-evaluating-like-booleans)
   - [8. Values lists](#8-values-lists)
   - [9. Dictionaries](#9-dictionaries)
@@ -37,6 +38,7 @@ A bunch of GoDot examples to play and test the engine elements and tools. Docume
     - [15.3. Parallax](#153-parallax)
     - [15.4. Bullet/Lightning element](#154-bulletlightning-element)
     - [15.5. Magical Portal/Vortex](#155-magical-portalvortex)
+    - [15.6. Npc's with IA](#156-npcs-with-ia)
   - [16. CheatSheet](#16-cheatsheet)
     - [16.1. Scene Elements - Nodes](#161-scene-elements---nodes)
     - [16.2. Classes](#162-classes)
@@ -149,6 +151,17 @@ for item in item_list:
 ```
 The **continue** keyword void the next code to the loop's end and go to the next iteration.<br>
 The **break** keyword stop the loop and go out to the next code after loop.
+
+### 6.3 Yield
+The **yield** special word is used to block a thread and controlled by a signal. Accirdubg GoDot documentation:
+
+```python
+yield(countdown(),"completed")
+```
+
+Stops the function execution and returns the current suspended state to the calling function.
+From the caller, call GDScriptFunctionState.resume() on the state to resume execution. This invalidates the state. Within the resumed function, yield() returns whatever was passed to the resume() function call.
+
 
 ## 7. Evaluating like booleans
 An empty string is interpreted as a false (like JS).<br>
@@ -392,7 +405,6 @@ Parallax is the phenomenon where objects seem to be in different positions based
 
 ## 15. Scene Examples
 ### 15.1. Player 2D
-- KinematicBody2D: De
 - KinematicBody2D: Define the body type
   - CollisionShape2D: Define collision
   - AnimatedSprite: Define the player animation
@@ -478,6 +490,81 @@ Parallax is the phenomenon where objects seem to be in different positions based
 
 </div>
 
+### 15.6. Npc's with IA
+It is possible to establish a movement path to an element of the scene, and that the path it takes is random among several possible ones. The scene is a basic KinematicBody2D scene, but in this example, the NPC has LightOccluder2D to project shadow and Timer to restart de path passed some time. Torch is a Light2D node added because the NPC's is a night guard:
+- KinematicBody2D: Define the body type
+  - Sprite: Define the NPC picture
+  - CollisionShape2D: Define the collision
+  - Light2D: Define a light to project
+  - Timer: Define the time to repeat actions
+
+![Example NPC IA](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/npc_ia_scene_example.PNG)
+
+In the scene where the NPCs are used it is necessary has a Navigation2D Node with a TileMap to define the map and Position2D nodes to define the place to go (destinations). Here is very important to define levels, the TileMap was Navigation2D child, it is necessary to the NPCs can follow a paht into the map.
+If we created the TileMap before the Navigation2D node, can copy it and paste into the Navigation2D, repaint the map in the new TileMap and remove the origianl TileMap. The new TileMap is related with the Navigation2D but the original not.
+
+![Example NPC IA 2](https://github.com/The-Four-Lords/GoDot_Examples_and_CheatSheet/blob/master/img/npc_ia_scene_example_2.PNG)
+
+Here the most important thing, is the script to define the NPC's IA:
+- Get the navigation node and destinations node. Define the minimum distance to the coordinate and walk speed. 
+- When the node is ready make a path
+- Every frames (_physic_process function) the NPC move to the destination or update the path (call navigate function)
+- In make_path function get a new random destination and set the path to it from the node position
+- In move function the node look at to destination and set motion for move_and_slide (detect if is on wall to make a new path)
+- In update_path if the path has only one Vector2 (the coordenates to follow) and the Timer is stopped, it run, else remove one coordenate from the path
+- The timer make a new path
+
+```python
+onready var navigation = get_tree().get_root().find_node("Navigation2D",true,false)
+onready var destinations = navigation.get_node("Destinations")
+
+var motion
+var possible_destinations
+var path
+
+export var minimum_arrival_distance = 5
+export var walk_speed = 0.5
+
+func _ready():
+	randomize()
+	possible_destinations = destinations.get_children()
+	make_path()
+
+func make_path():
+	var new_destination = possible_destinations[randi() % possible_destinations.size() - 1]
+	path = navigation.get_simple_path(position, new_destination.position, false)
+
+func _physics_process(delta):
+	navigate()
+
+func navigate():
+	var distance_to_destination = position.distance_to(path[0])
+	
+	if distance_to_destination > minimum_arrival_distance:
+		move()
+	else:
+		update_path()
+		
+func move():
+	look_at(path[0])
+	motion = (path[0] - position).normalized() * (MAX_SPEED * walk_speed)
+	# check if is in wall, then make a new path to go
+	if is_on_wall():
+		make_path()
+	# move the motion
+	move_and_slide(motion)
+
+func update_path():
+	if path.size() == 1:
+		if $Timer.is_stopped():
+			$Timer.start()
+	else:
+		path.remove(0)
+
+
+func _on_Timer_timeout():
+	make_path()
+```
 
 ## 16. CheatSheet
 ### 16.1. Scene Elements - Nodes
@@ -514,6 +601,11 @@ CanvasLayer | Canvas drawing layer. CanvasItem nodes that are direct or indirect
 RayCast2D | To detect objects close the ray. A RayCast represents a line from its origin to its destination position, cast_to. It is used to query the 2D space in order to find the closest object along the path of the ray. RayCast2D can ignore some objects by adding them to the exception list via add_exception, by setting proper filtering with collision layers, or by filtering object types with type masks. RayCast2D can be configured to report collisions with Area2Ds (collide_with_areas) and/or PhysicsBody2Ds (collide_with_bodies). Only enabled raycasts will be able to query the space and report collisions. RayCast2D calculates intersection every physics frame (see Node), and the result is cached so it can be used later until the next frame. If multiple queries are required between physics frames (or during the same frame) use force_raycast_update after adjusting the raycast
 VisibilityNotifier2D | To know when go out the screen. The VisibilityNotifier2D is used to notify when its bounding rectangle enters the screen, is visible on the screen, or when it exits the screen
 Particles2D | 2D particle node used to create a variety of particle systems and effects. Particles2D features an emitter that generates some number of particles at a given rate. Use the process_material property to add a ParticlesMaterial to configure particle appearance and behavior. Alternatively, you can add a ShaderMaterial which will be applied to all particles
+Light2D | Casts light in a 2D environment. Needs a lightmap texture. THe lightmap is calculated from the origin of the node, not from where the texture is and is blocket by occlusion (occlusion use layers, just like collision). If the origin node has occlusion is possible the Light2D needs offset to work correctly.
+CanvasModulate | Tint the entire canvas. Is used to change the tint and light of the scene.
+LightOccluder2D | Occludes light cast by a Light2D, casting shadows. Is added to element to has shadows.
+Navigation2D | 2D navigation and pathfinding node. Can use NavigationPolygonInstacee or TileMap node.
+collisionShape2D | Node that represents collision shape data in 2D space.
 
 
 ### 16.2. Classes
@@ -551,6 +643,10 @@ get_child(child_index) | On node returns the child specified
 file.get_as_text() | Returns the file content as text. The file, is a File object, where has been invoked File.new() to instance it and file.open(filePath, openMethod) to set the file to read like text
 parse_json(text) | Returns the text enter like json object
 preload("resourceFilePath") | Load the file (scene, image, etc) in resourceFilePath and return a ID associated with this preload (used in texture attribute)
+load("resourceFilePath") | Loads a resource from the filesystem located at path. The resource is loaded on the method call (unless it's referenced already elsewhere, e.g. in another script or in the scene), which might cause slight delay, especially when loading scenes. To avoid unnecessary delays when loading something multiple times, either store the resource in a variable or use preload().
+change_scene() | Changes the running scene to the one at the given path, after loading it into a PackedScene and creating a new instance.
+add_child(node,legible_unique_name) | Adds a child node. Nodes can have any number of children, but every child must have a unique name. Child nodes are automatically deleted when the parent node is deleted, so an entire scene can be removed by deleting its topmost node.
+paused | Tree function to paused the flow
 round(s) | Returns the integral value that is nearest to s, with halfway cases rounded away from zero
 asb(s) | Returns the absolute value of parameter s (i.e. unsigned value, works for integer and float)
 get_global_mouse_position() | Returns the mouse position over view
@@ -572,6 +668,22 @@ look_at() | Node2D function. Rotates the node so it points towards the point, wh
 get_global_mouse_position | CanvasItem function. Returns the global position of the mouse.
 clamp(value, min, max) | Clamps value and returns a value not less than min and not more than max. Usefull to nodes movement
 lerp(from, to, weight) | Linearly interpolates between two values by a normalized value. This is the opposite of inverse_lerp(). Applied on Nodes, is usefull to create different floor material sensation where the node is in movement
+get_children() | Node function. Returns an array of references to node's children
+find_node(mask,recursive,owned) | Finds a descendant of this node whose name matches mask as in String.match()
+global_position() | Node2D function. Returns the node global position
+angle_to(Vector2) | Returns the angle between the line connecting the two points and the X axis, in radians.
+deg2rad(deg) | Converts an angle expressed in degrees to radians
+get_world_2d() | Returns the World2D where this item is in. Everything that relates to the 2D environment (sound,physics,etc)
+direct_space_state | World/World2D property. the physics state - allow for arbitrary collision requests
+intersect_ray() | Physics2DDirectSpaceState function. Intersects a ray in a given space
+distance_to(Vector2) | Vector function. Returns the distance between this vector and to.
+get_simple_path(Vector2,Vector2,optimize) | Navigation2D function. Returns the path between two given points. Points are in local coordinate space. If optimize is true (the default), the path is smoothed by merging path segments where possible
+pop_front | Removes and returns the first element of the array. Returns null if the array is empty, without printing an error message
+remove | Removes an element from the array by index. If the index does not exist in the array, nothing happens
+_input(event) | Function to read a evnet only one time
+get_colliding_bodies | Returns a list of the bodies colliding with this one. Requires **contact_monitor** to be set to true and **contacts_reported** to be set high enough to detect all the collisions.
+is_in_group | Returns true if this node is in the specified group. See notes in the description, and the group methods in SceneTree. Each element can be in none, one or more groups
+get_name() | Returns a node name, stablished and customizable in the scene inspector
 
 
 ### 16.4. Hot Keys
@@ -587,3 +699,5 @@ Alt+"ArrowKey" | Move line code in arrow key direction
 F6 | Run the curren scene
 F5 | Run the main project scene
 F4 | Open GoDot API dialog
+\# | To comment code
+""" | To comment code blocks
